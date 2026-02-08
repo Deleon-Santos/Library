@@ -45,10 +45,10 @@
     <main class="container">
         <header class="header">
           <nav class="header__nav">
-            <div class="navegation"><button><i class="fa-solid fa-chevron-left"></i></button><button><i class="fa-solid fa-chevron-right"></i></button>
-              <div class="search">
-              <input type="text" placeholder="Pesquisar..."/>
-              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="navegation"><button id="prevSearch"><i class="fa-solid fa-chevron-left"></i></button><button id="nextSearch"><i class="fa-solid fa-chevron-right"></i></button>
+              <div class="search" >
+              <input id="searchInput" type="text" placeholder="Pesquisar..."/>
+              <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             </div>
             
@@ -62,33 +62,9 @@
         <section class="main">
           <div class="main-container">
             <h2>Minha Coleções</h2>
-            <div class="main-colection">
+            <div class="main-colection" id="biblioteca">
                 
-              <div class="collection">
-                    <img src="/1.webp" alt="Senhor dos Anéis">
-                    <h4>Senhor dos Anéis</h4>
-                    <p>Uma jornada épica pela Terra Média em busca da destruição do Um Anel.</p>
-                </div>
-                <div class="collection">
-                    <img src="/2.webp" alt="Senhor dos Anéis">
-                    <h4>Senhor dos Anéis</h4>
-                    <p>Uma jornada épica pela Terra Média em busca da destruição do Um Anel.</p>
-                </div>
-                <div class="collection">
-                    <img src="/3.webp" alt="Senhor dos Anéis">
-                    <h4>Senhor dos Anéis</h4>
-                    <p>Uma jornada épica pela Terra Média em busca da destruição do Um Anel.</p>
-                </div>
-                <div class="collection">
-                    <img src="/3.webp" alt="Senhor dos Anéis">
-                    <h4>Senhor dos Anéis</h4>
-                    <p>Uma jornada épica pela Terra Média em busca da destruição do Um Anel.</p>
-                </div>
-                <div class="collection">
-                    <img src="/3.webp" alt="Senhor dos Anéis">
-                    <h4>Senhor dos Anéis</h4>
-                    <p>Uma jornada épica pela Terra Média em busca da destruição do Um Anel.</p>
-                </div>
+             
             </div>
           </div>
         </section>
@@ -102,5 +78,8 @@
           </div>
       </div>
     </footer>
+    <!-- <script src="scripts/cards.js"></script> -->
+    <script src="scripts/busca.js"></script>
+
   </body>
 </html>

@@ -58,6 +58,12 @@
     outline: none;
     width: 300px;
 }
+.searsh input:focus{
+    background-color: transparent;
+    border: none;
+    outline: none;
+   
+}
 .se {
     display: flex;
     align-items: center;
