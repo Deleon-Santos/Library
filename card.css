@@ -1,0 +1,27 @@
+.collection{
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.collection:hover{
+    transform: translateY(-5px);
+}
+
+.collection img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.collection h4{
+    margin: 10px 0 5px;
+}
+
+.collection p{
+    color: #555;
+}
