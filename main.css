@@ -32,12 +32,13 @@
 } */
 
 .main-colection{
-    max-height: 70vh;
+    max-height: 65vh;
     /* margin: 24px; */
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    justify-content: space-between;
 }
 .main-colection::-webkit-scrollbar{
     width: 1px;
