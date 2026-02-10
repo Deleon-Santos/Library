@@ -1,16 +1,16 @@
 .main{
-    
+    /* border: 1px solid #000; */
     padding-top: 16px;
     margin: 10px;
     border-radius: 10px;
-    background: #d1d0d0;
+    background: var(--background-box);
     padding: 10px;
-    height: 80vh;
+    height: 78vh;
 }
 .main-container h2{
     font-size:1.5rem;
     font-weight: 600;
-    background-color:#a9a8a8;
+    background-color: var(--background-destaque-box);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;

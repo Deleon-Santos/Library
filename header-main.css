@@ -1,10 +1,13 @@
 
 .container{
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
     
-    margin: 0;
-    
-    height: 100vh;
-    margin-left: 150px;
+    /* height: 100dvh; */
+    margin-left: 250px;
     
     
 
@@ -14,7 +17,7 @@
     padding: 10px;
     border-radius: 8px;
     margin: 10px;
-    background: #d1d0d0;
+    background: var(--background-box);
     
 }
 .header__nav{
@@ -34,7 +37,7 @@
     width: 30px;
     justify-content: center;
     height: 30px;
-    background-color:#a9a8a8;
+    background-color:var(--background-destaque-element);
     
     border:none;
     border-radius: 50%;
@@ -42,7 +45,7 @@
 }
 .navegation .search {
     padding: 0 10px ;
-    background-color:#a9a8a8;
+    background-color: var(--background-destaque-element);
     display: flex;
     align-items: center;
     border-radius: 40px;
@@ -51,15 +54,17 @@
     background-color: transparent;
     border: none;
     padding: 0 10px;
-    color: #000;
+    color:var(--color);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     outline: none;
     width: 300px;
+    
 }
-.searsh input:focus{
-    background-color: transparent;
+.searsh input:hover{
+    background-color: var(--background-destaque-box);
+    border-radius: 5px;
     border: none;
     outline: none;
    
@@ -85,7 +90,7 @@
     text-decoration: none;
 }
 .login-enter{
-    background-color:#a9a8a8;
+    background-color: var(--background-destaque-element);
     padding:5px 15px;
     /* border: 1px solid #000; */
     color: #000;

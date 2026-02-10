@@ -1,23 +1,17 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+
 body {
-  background: #e3e3e3;
-  
+  background: var(--background);
+  /* border: 2px solid black; */
 }
 
 .aside-bar {
-  
-  /* font-size: 1.4rem; */
+  /* border: 2px solid black; */
   position: fixed;
   top:0;
   left:0;
   bottom: 0;
-  width: 160px;
-  background: #e3e3e3;
+  width: 260px;
+  background: var(--background);
   padding: 10px;
   
 }
@@ -27,8 +21,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
-  background: #d1d0d0;
+  padding: 15px;
+  background: var(--background-box);
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -40,7 +34,7 @@ body {
 
 .aside-bar__session a {
   text-decoration: none;
-  color: black;
+  color: var(--color);
   font-size: .9rem;
   padding: 10px;
 }
@@ -51,12 +45,13 @@ body {
 
 .botton .new-colection{
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   gap:15px;
-  background: #a4a4a4;
+  background: var(--background-destaque-box);
   font-size: .6rem;
   border-radius: 10px;
-  padding:15px 5px;
+  padding:15px ;
 }
 .new-colection a {
   
@@ -64,7 +59,7 @@ body {
   text-align: center;
   text-decoration: none;
   border-radius: 20px;
-  background: #8c8c8c;
+  background: var(--background-destaque-element);
   color: white;
 }
 .config i,
@@ -74,5 +69,5 @@ body {
   font-size: .5rem;
 }
 .botton{
-  height: 370px;
+  height: 350px;
 }
