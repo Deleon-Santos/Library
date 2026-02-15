@@ -1,12 +1,9 @@
 
 .container{
-    position: fixed;
-    right: 0;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
+    background-color: var(--background);
     
-    /* height: 100dvh; */
+    
+    
     margin-left: 250px;
     
     
@@ -16,7 +13,7 @@
     
     padding: 10px;
     border-radius: 8px;
-    margin: 10px;
+    margin:10px;
     background: var(--background-box);
     
 }

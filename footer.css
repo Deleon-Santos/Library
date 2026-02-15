@@ -3,7 +3,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-image:linear-gradient(to bottom, #e3e3e3, #c0c0c0);
+    
+    background-image:linear-gradient(to bottom, var(--background-box), var(--background-destaque-box) );
     padding: 10px;
 }
 .footer-container{

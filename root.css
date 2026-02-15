@@ -1,8 +1,8 @@
 :root {
-    --background:#f4f4f4b8 ;
-    --background-box: #c9eaf8;
-    --background-destaque-box: #9ad4fe;
-    --background-destaque-element: #7ebffc;
+    --background:#f4f4f4 ;
+    --background-box: #dcdcdc;
+    --background-destaque-box: #ababab;
+    --background-destaque-element: #919191fa;
     --color: #000;
     
 
@@ -12,4 +12,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.interface {
+  
+  padding: 1px;
+  
+  background-color: var(--background);
 }

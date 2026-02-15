@@ -8,28 +8,13 @@
     height: 78vh;
 }
 .main-container h2{
-    font-size:1.5rem;
+    font-size:1rem;
     font-weight: 600;
     background-color: var(--background-destaque-box);
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
-/* .playlist{
-    margin: 10px 24px;
-} */
-
-/* .playlist #secao-id{
-    color: #fff;
-    font-size: 32px;
-    font-weight: 700;
-} */
-/* .playlist .secao{
-    color: #fff;
-    font-size: 24px;
-    font-weight: 700;
-    
-} */
 
 .main-colection{
     max-height: 65vh;
