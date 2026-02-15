@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const homeBtn = document.getElementById("homeBtn");
     const focusSearch = document.getElementById("focusSearch");
+    const lib = document.getElementById("lib")
 
     let livros = [];
     let searchHistory = [];
@@ -95,10 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    homeBtn.addEventListener("click", (e) => {
+    homeBtn, lib.addEventListener("click", (e) => {
         e.preventDefault();
         renderResults(livros);
     });
+
 
     focusSearch.addEventListener("click", (e) => {
         e.preventDefault();

@@ -2,13 +2,15 @@
 .container{
     background-color: var(--background);
     
-    
+    margin: 0;
+    /* border:0; */
     
     margin-left: 250px;
     
     
 
 }
+
 .header{
     
     padding: 10px;
@@ -17,17 +19,20 @@
     background: var(--background-box);
     
 }
+
 .header__nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
+
 .header .navegation{
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
+
 .navegation button{
     
     align-items: center;
@@ -40,13 +45,21 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
 .navegation .search {
     padding: 0 10px ;
     background-color: var(--background-destaque-element);
     display: flex;
+
+    
     align-items: center;
     border-radius: 40px;
+    
+    width: 300px ;
+
+    
 }
+
 .search input{
     background-color: transparent;
     border: none;
@@ -56,9 +69,10 @@
     overflow: hidden;
     white-space: nowrap;
     outline: none;
-    width: 300px;
+    min-width: 90%;
     
 }
+
 .searsh input:hover{
     background-color: var(--background-destaque-box);
     border-radius: 5px;
@@ -66,16 +80,7 @@
     outline: none;
    
 }
-.se {
-    display: flex;
-    align-items: center;
-    width: 364px;
-    height: 48px;
-    background-color: #242424;
-    border: 500px;
-    border: 1px solid transparent;
 
-}
 
 .login-inscrever{
     color: #000;
@@ -86,6 +91,7 @@
     cursor: pointer;
     text-decoration: none;
 }
+
 .login-enter{
     background-color: var(--background-destaque-element);
     padding:5px 15px;

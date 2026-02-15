@@ -1,14 +1,15 @@
 .main{
-    /* border: 1px solid #000; */
-    padding-top: 16px;
+    /* border: 1px solid #000;  */
+    
     margin: 10px;
     border-radius: 10px;
     background: var(--background-box);
     padding: 10px;
-    height: 78vh;
+    /* height: 100vh; */
+    /* overflow-y: auto; */
 }
 .main-container h2{
-    font-size:1rem;
+    font-size:.8rem;
     font-weight: 600;
     background-color: var(--background-destaque-box);
     padding: 10px;
@@ -17,7 +18,7 @@
 }
 
 .main-colection{
-    max-height: 65vh;
+    max-height: 68vh;
     /* margin: 24px; */
     overflow-y: auto;
     display: grid;

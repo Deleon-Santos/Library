@@ -9,7 +9,7 @@
   width: 260px;
   background: var(--background);
   padding: 10px;
-  
+  height: 100dvh;
 }
 
 .aside-bar__session {
@@ -62,8 +62,7 @@
 .config a {
   
   padding: 0;
-  font-size: .5rem;
+  font-size: 1rem;
 }
-.botton{
-  height: 350px;
-}
+/* .botton{
+  /* height: 350px; */
