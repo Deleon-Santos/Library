@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const homeBtn = document.getElementById("homeBtn");
     const focusSearch = document.getElementById("focusSearch");
-    const lib = document.getElementById("lib")
+    const lib = document.getElementById("lib");
+    const inscrever = document.getElementById("inscrever");
+    const entrar = document.getElementById("enter")
+    const liby = document.getElementById("new-lib")
 
     let livros = [];
     let searchHistory = [];
@@ -58,7 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
             currentIndex = searchHistory.length - 1;
         }
     }
+    inscrever.addEventListener("click", function(e){
+        e.preventDefault();
+        alert("Página de inscrição em desenvolvimento 🚀");
+    });
 
+    entrar.addEventListener("click", function(e){
+        e.preventDefault();
+        alert("Página de login em desenvolvimento 🔐");
+    });
+    liby.addEventListener("click", function(e){
+        e.preventDefault();
+        alert("Página em desenvolvimento(aguardando o back-end) 🚀");
+    });
+    
     btn.addEventListener("click", () => {
         searchItems(input.value);
     });
@@ -96,7 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    homeBtn, lib.addEventListener("click", (e) => {
+    lib.addEventListener("click", (e) => {
+        e.preventDefault();
+        renderResults(livros);
+    });
+    
+    homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         renderResults(livros);
     });
