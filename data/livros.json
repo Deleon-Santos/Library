@@ -1,102 +1,54 @@
-    [
-        {
-            "img": "img/1.webp",
-            "titulo": "Senhor dos Anéis",
-            "descricao": "Uma jornada épica pela Terra Média."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        },
-        {
-            "img": "img/2.webp",
-            "titulo": "O Hobbit",
-            "descricao": "A aventura inesperada de Bilbo Bolseiro."
-        }
-    ]
+    
+  
+  [
+    
+    { "id": 101, "titulo": "Orgulho e Preconceito", "autor": "Jane Austen", "descricao": "Um clássico sobre amor e diferenças sociais.", "img": "img/1.webp", "bibliotecaId": 1 },
+    { "id": 102, "titulo": "Jane Eyre", "autor": "Charlotte Bronte", "descricao": "A jornada emocional de uma jovem governanta.", "img": "img/1.webp", "bibliotecaId": 1 },
+    { "id": 103, "titulo": "Anna Karenina", "autor": "Leo Tolstoi", "descricao": "Uma história intensa sobre paixão e sociedade.", "img": "img/1.webp", "bibliotecaId": 1 },
+    { "id": 104, "titulo": "O Morro dos Ventos Uivantes", "autor": "Emily Bronte", "descricao": "Amor e vingança em uma narrativa sombria.", "img": "img/1.webp", "bibliotecaId": 1 },
+    { "id": 105, "titulo": "Como Eu Era Antes de Voce", "autor": "Jojo Moyes", "descricao": "Uma história moderna sobre transformação.", "img": "img/1.webp", "bibliotecaId": 1 },
+
+    
+    { "id": 201, "titulo": "Duna", "autor": "Frank Herbert", "descricao": "Uma saga futurista de poder e sobrevivencia.", "img": "img/1.webp", "bibliotecaId": 2 },
+    { "id": 202, "titulo": "Neuromancer", "autor": "William Gibson", "descricao": "O marco do genero cyberpunk.", "img": "img/1.webp", "bibliotecaId": 2 },
+    { "id": 203, "titulo": "Admiravel Mundo Novo", "autor": "Aldous Huxley", "descricao": "Uma distopia sobre controle social.", "img": "img/1.webp", "bibliotecaId": 2 },
+    { "id": 204, "titulo": "Fahrenheit 451", "autor": "Ray Bradbury", "descricao": "Uma sociedade onde livros sao proibidos.", "img": "img/1.webp", "bibliotecaId": 2 },
+    { "id": 205, "titulo": "O Hobbit", "autor": "J.R.R. Tolkien", "descricao": "A aventura de Bilbo Bolseiro.", "img": "img/1.webp", "bibliotecaId": 2 },
+
+    
+    { "id": 301, "titulo": "Sapiens", "autor": "Yuval Noah Harari", "descricao": "Uma breve historia da humanidade.", "img": "img/1.webp", "bibliotecaId": 3 },
+    { "id": 302, "titulo": "Armas, Germes e Aco", "autor": "Jared Diamond", "descricao": "Os fatores que moldaram civilizacoes.", "img": "img/1.webp", "bibliotecaId": 3 },
+    { "id": 303, "titulo": "SPQR", "autor": "Mary Beard", "descricao": "A historia da Roma Antiga.", "img": "img/spqr.webp", "bibliotecaId": 3 },
+    { "id": 304, "titulo": "Os Canhoes de Agosto", "autor": "Barbara Tuchman", "descricao": "Os primeiros dias da Primeira Guerra.", "img": "img/1.webp", "bibliotecaId": 3 },
+    { "id": 305, "titulo": "Genghis Khan", "autor": "Jack Weatherford", "descricao": "O impacto do Imperio Mongol.", "img": "img/1.webp", "bibliotecaId": 3 },
+
+    
+    { "id": 401, "titulo": "O Estrangeiro", "autor": "Albert Camus", "descricao": "Uma reflexao sobre o absurdo.", "img": "img/1.webp", "bibliotecaId": 4 },
+    { "id": 402, "titulo": "A Queda", "autor": "Albert Camus", "descricao": "Culpa e julgamento moral.", "img": "img/1.webp", "bibliotecaId": 4 },
+    { "id": 403, "titulo": "O Homem Revoltado", "autor": "Albert Camus", "descricao": "Uma analise da revolta humana.", "img": "img/1.webp", "bibliotecaId": 4 },
+    { "id": 404, "titulo": "Assim Falou Zaratustra", "autor": "Friedrich Nietzsche", "descricao": "Ideias sobre valores e existencia.", "img": "img/1.webp", "bibliotecaId": 4 },
+    { "id": 405, "titulo": "Meditacoes", "autor": "Marco Aurelio", "descricao": "Reflexoes do imperador estoico.", "img": "img/1.webp", "bibliotecaId": 4 },
+
+    
+    { "id": 501, "titulo": "Uma Breve Historia do Tempo", "autor": "Stephen Hawking", "descricao": "Os misterios do universo explicados.", "img": "img/1.webp", "bibliotecaId": 5 },
+    { "id": 502, "titulo": "O Gene", "autor": "Siddhartha Mukherjee", "descricao": "A historia da genetica.", "img": "img/1.webp", "bibliotecaId": 5 },
+    { "id": 503, "titulo": "Cosmos", "autor": "Carl Sagan", "descricao": "Uma viagem pelo espaco.", "img": "img/cosmos.webp", "bibliotecaId": 5 },
+    { "id": 504, "titulo": "O Andar do Bebado", "autor": "Leonard Mlodinow", "descricao": "Como o acaso influencia nossas vidas.", "img": "img/1.webp", "bibliotecaId": 5 },
+    { "id": 505, "titulo": "Astrofisica para Apressados", "autor": "Neil deGrasse Tyson", "descricao": "O universo de forma acessivel.", "img": "img/1.webp", "bibliotecaId": 5 },
+
+    
+    { "id": 601, "titulo": "O Pequeno Principe", "autor": "Antoine de Saint-Exupery", "descricao": "Uma fabula sobre amizade.", "img": "img/1.webp", "bibliotecaId": 6 },
+    { "id": 602, "titulo": "Matilda", "autor": "Roald Dahl", "descricao": "Uma menina genial enfrenta desafios.", "img": "img/1.webp", "bibliotecaId": 6 },
+    { "id": 603, "titulo": "Charlotte e a Teia de Aranha", "autor": "E.B. White", "descricao": "Uma amizade inesquecivel.", "img": "img/1.webp", "bibliotecaId": 6 },
+    { "id": 604, "titulo": "Onde Vivem os Monstros", "autor": "Maurice Sendak", "descricao": "Uma aventura imaginativa.", "img": "img/1.webp", "bibliotecaId": 6 },
+    { "id": 605, "titulo": "O Gruffalo", "autor": "Julia Donaldson", "descricao": "Uma historia divertida e criativa.", "img": "img/1.webp", "bibliotecaId": 6 },
+
+    
+    { "id": 701, "titulo": "Watchmen", "autor": "Alan Moore", "descricao": "Uma abordagem realista dos super-herois.", "img": "img/1.webp", "bibliotecaId": 7 },
+    { "id": 702, "titulo": "Maus", "autor": "Art Spiegelman", "descricao": "O holocausto em forma de HQ.", "img": "img/maus.webp", "bibliotecaId": 7 },
+    { "id": 703, "titulo": "Batman: O Cavaleiro das Trevas", "autor": "Frank Miller", "descricao": "O retorno de um Batman envelhecido.", "img": "img/1.webp", "bibliotecaId": 7 },
+    { "id": 704, "titulo": "Saga", "autor": "Brian K. Vaughan", "descricao": "Fantasia e ficcao cientifica combinadas.", "img": "img/1.webp", "bibliotecaId": 7 },
+    { "id": 705, "titulo": "Persepolis", "autor": "Marjane Satrapi", "descricao": "Memorias da Revolucao Iraniana.", "img": "img/1.webp", "bibliotecaId": 7 }
+
+  ]
+

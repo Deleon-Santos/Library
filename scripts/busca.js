@@ -1,82 +1,125 @@
-const input = document.getElementById("searchInput");
-const btn = document.getElementById("searchBtn");
+const state = {
+    livros: [],
+    bibliotecas: [],
+    bibliotecaAtual: null
+};
+
 const results = document.getElementById("biblioteca");
+const input = document.getElementById("searchInput");
 
-const prevBtn = document.getElementById("prevSearch");
-const nextBtn = document.getElementById("nextSearch");
-
-let livros = []; // <- fica em memória
-let searchHistory = [];
-let currentIndex = -1;
+let bibliotecaAtual = null;
 
 
-// 🔎 Carrega os livros UMA vez
-async function carregarLivros() {
+// 🔥 Carrega os dados
+async function carregarDados() {
 
-    const resposta = await fetch("./data/livros.json");
-    livros = await resposta.json();
+    try {
 
-    renderResults(livros);
+        const [resLivros, resBibliotecas] = await Promise.all([
+            fetch("/data/livros.json"),
+            fetch("/data/bibliotecas.json")
+        ]);
+
+        livros = await resLivros.json();
+        bibliotecas = await resBibliotecas.json();
+
+        renderBibliotecas();
+
+    } catch (erro) {
+
+        results.innerHTML = "<h2>Erro ao carregar biblioteca 😢</h2>";
+        console.error("Erro:", erro);
+    }
 }
 
 
-// 🎨 Renderiza os cards
-function renderResults(lista) {
+// 🔥 Renderiza bibliotecas
+function renderBibliotecas() {
+
+    bibliotecaAtual = null;
+    input.value = ""; // limpa busca
 
     results.innerHTML = "";
 
-    if (lista.length === 0) {
-        results.innerHTML = "<p>Nenhum livro encontrado.</p>";
-        return;
-    }
+    bibliotecas.forEach(bib => {
 
-    lista.forEach(livro => {
-        results.innerHTML += `
-            <div class="collection">
-                <img src="${livro.img}" alt="${livro.titulo}">
-                <h4>${livro.titulo}</h4>
-                <p>${livro.descricao}</p>
+        results.insertAdjacentHTML("beforeend", `
+            <div class="collection biblioteca" data-id="${bib.id}">
+                <img src="${bib.img}">
+                <h3>${bib.nome}</h3>
             </div>
-        `;
+        `);
     });
 }
 
 
-// 🔎 Busca por título
-function searchItems(term) {
+// 🔥 Renderiza livros
+function renderLivros(lista) {
 
-    if (!term) {
-        renderResults(livros); // mostra todos novamente
+    results.innerHTML = `
+        <button id="voltar">⬅ Voltar</button>
+        
+    `;
+
+    // 🔥 evita tela vazia sem feedback
+    if (lista.length === 0) {
+
+        results.insertAdjacentHTML("beforeend",
+            `<p>Nenhum livro encontrado 📚</p>`
+        );
+
         return;
     }
 
-    const filtered = livros.filter(livro =>
-        livro.titulo.toLowerCase().includes(term.toLowerCase())
-    );
+    lista.forEach(livro => {
 
-    renderResults(filtered);
-
-    // salva histórico
-    if (searchHistory[currentIndex] !== term) {
-        searchHistory.push(term);
-        currentIndex = searchHistory.length - 1;
-    }
+        results.insertAdjacentHTML("beforeend", `
+            <div class="collection livro" data-id="${livro.id}">
+                <img src="${livro.img}">
+                <h4>${livro.titulo}</h4>
+                <p>${livro.descricao}</p>
+            </div>
+        `);
+    });
 }
 
 
-// clique no botão
-btn.addEventListener("click", () => {
-    searchItems(input.value);
-});
+// 🔥 EVENT DELEGATION (apenas UM listener)
+results.addEventListener("click", (e) => {
 
+    if (e.target.id === "voltar") {
+        renderBibliotecas();
+        return;
+    }
 
-// ENTER para buscar
-input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        searchItems(input.value);
+    const biblioteca = e.target.closest(".biblioteca");
+
+    if (biblioteca) {
+
+        const id = Number(biblioteca.dataset.id);
+
+        bibliotecaAtual = id;
+
+        const filtrados = livros.filter(
+            livro => Number(livro.bibliotecaId) === id // 🔥 blindagem de tipo
+        );
+
+        renderLivros(filtrados);
+        return;
+    }
+
+    const livro = e.target.closest(".livro");
+
+    if (livro) {
+
+        const idLivro = Number(livro.dataset.id);
+
+        adicionarLivroNaBiblioteca(idLivro);
     }
 });
 
+
+// 🔥 BUSCA PROFISSIONAL (com debounce)
 let timeout;
 
 input.addEventListener("input", () => {
@@ -84,32 +127,75 @@ input.addEventListener("input", () => {
     clearTimeout(timeout);
 
     timeout = setTimeout(() => {
-        searchItems(input.value);
-    }, 300); // debounce
+        buscar(input.value);
+    }, 300); // estilo Netflix 🙂
 });
 
 
-// ⬅ busca anterior
-prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        input.value = searchHistory[currentIndex];
-        searchItems(input.value);
+function buscar(valor) {
+
+    const termo = valor.trim().toLowerCase();
+
+    // vazio
+    if (!termo) {
+
+        if (bibliotecaAtual) {
+
+            const filtrados = livros.filter(
+                livro => Number(livro.bibliotecaId) === bibliotecaAtual
+            );
+
+            renderLivros(filtrados);
+
+        } else {
+            renderBibliotecas();
+        }
+
+        return;
     }
-});
+
+    // 🔥 busca mais poderosa (titulo + descricao)
+    const resultado = livros.filter(livro => {
+
+        const textoBusca = `
+            ${livro.titulo}
+            ${livro.descricao}
+        `.toLowerCase();
+
+        const matchTexto = textoBusca.includes(termo);
+
+        if (!bibliotecaAtual) return matchTexto;
+
+        return (
+            Number(livro.bibliotecaId) === bibliotecaAtual &&
+            matchTexto
+        );
+    });
+
+    renderLivros(resultado);
+}
 
 
-// ➡ próxima busca
-nextBtn.addEventListener("click", () => {
-    if (currentIndex < searchHistory.length - 1) {
-        currentIndex++;
-        input.value = searchHistory[currentIndex];
-        searchItems(input.value);
+// 🔥 LocalStorage melhorado
+function adicionarLivroNaBiblioteca(idLivro) {
+
+    const key = "minhaBiblioteca";
+
+    const minhaBib =
+        JSON.parse(localStorage.getItem(key)) || [];
+
+    if (minhaBib.includes(idLivro)) {
+
+        alert("Livro já está na sua biblioteca!");
+        return;
     }
-});
+
+    minhaBib.push(idLivro);
+
+    localStorage.setItem(key, JSON.stringify(minhaBib));
+
+    alert("Livro adicionado com sucesso 📚");
+}
 
 
-// inicia
-carregarLivros();
-
-
+carregarDados();

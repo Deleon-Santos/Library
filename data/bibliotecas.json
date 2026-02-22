@@ -1,0 +1,9 @@
+[
+  { "id": 1, "nome": "Romance", "img": "img/1.webp" },
+  { "id": 2, "nome": "Ficção", "img": "img/1.webp" },
+  { "id": 3, "nome": "História", "img": "img/1.webp" },
+  { "id": 4, "nome": "Filosofia", "img": "img/1.webp" },
+  { "id": 5, "nome": "Ciência", "img": "img/1.webp" },
+  { "id": 6, "nome": "Infantil", "img": "img/1.webp" },
+  { "id": 7, "nome": "Quadrinhos", "img": "img/1.webp" }
+]

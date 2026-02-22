@@ -18,30 +18,30 @@ document.addEventListener("DOMContentLoaded", () => {
     let searchHistory = [];
     let currentIndex = -1;
 
-    async function carregarLivros() {
-        const resposta = await fetch("./data/livros.json");
-        livros = await resposta.json();
-        renderResults(livros);
-    }
+    // async function carregarLivros() {
+    //     const resposta = await fetch("./data/livros.json");
+    //     livros = await resposta.json();
+    //     renderResults(livros);
+    // }
 
-    function renderResults(lista) {
-        results.innerHTML = "";
+    // function renderResults(lista) {
+    //     results.innerHTML = "";
 
-        if (lista.length === 0) {
-            results.innerHTML = "<p>Nenhum livro encontrado.</p>";
-            return;
-        }
+    //     if (lista.length === 0) {
+    //         results.innerHTML = "<p>Nenhum livro encontrado.</p>";
+    //         return;
+    //     }
 
-        lista.forEach(livro => {
-            results.insertAdjacentHTML("beforeend", `
-                <div class="collection">
-                    <img src="${livro.img}" alt="${livro.titulo}">
-                    <h4>${livro.titulo}</h4>
-                    <p>${livro.descricao}</p>
-                </div>
-            `);
-        });
-    }
+    //     lista.forEach(livro => {
+    //         results.insertAdjacentHTML("beforeend", `
+    //             <div class="collection">
+    //                 <img src="${livro.img}" alt="${livro.titulo}">
+    //                 <h4>${livro.titulo}</h4>
+    //                 <p>${livro.descricao}</p>
+    //             </div>
+    //         `);
+    //     });
+    // }
 
     function searchItems(term) {
 
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (searchHistory[currentIndex] !== term) {
             searchHistory.push(term);
             currentIndex = searchHistory.length - 1;
-        }
-    }
+        }}
+
     inscrever.addEventListener("click", function(e){
         e.preventDefault();
         alert("Página de inscrição em desenvolvimento 🚀");
@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         alert("Página de login em desenvolvimento 🔐");
     });
+
     liby.addEventListener("click", function(e){
         e.preventDefault();
         alert("Página em desenvolvimento(aguardando o back-end) 🚀");
