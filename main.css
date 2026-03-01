@@ -1,12 +1,10 @@
 .main{
-    /* border: 1px solid #000;  */
-    
+    border: 5px solid red;
     margin: 10px;
     border-radius: 10px;
     background: var(--background-box);
     padding: 10px;
-    /* height: 100vh; */
-    /* overflow-y: auto; */
+  
 }
 .main-container h2{
     font-size:.8rem;
@@ -17,14 +15,17 @@
     margin-bottom: 10px;
 }
 
-.main-colection{
+.main-container .main-colection{
     max-height: 68vh;
-    /* margin: 24px; */
     overflow-y: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
-    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 16px;
+    padding: 10px;
+
+    border: 5px solid red;
 }
 
 .main-colection::-webkit-scrollbar{
@@ -34,5 +35,12 @@
     background-color: transparent;
 }
 
-
+#nome-colecao{
+    font-size: 1.5r em;
+    font-weight: 600;
+    background-color: var(--background-destaque-box);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
