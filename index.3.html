@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Criar Conta • Library</title>
+
+<link rel="stylesheet" href="cadastro.css">
+
+</head>
+
+<body>
+
+<div class="register-container">
+
+<form id="registerForm" class="register-card">
+
+<h1 class="logo">Crie sua conta</h1>
+
+
+
+<div class="input-group">
+
+<label>Nome</label>
+
+<div class="input-wrapper">
+<span class="icon">👤</span>
+<input type="text" id="nome" placeholder="Seu nome" required>
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Email</label>
+
+<div class="input-wrapper">
+<span class="icon">📧</span>
+<input type="email" id="email" placeholder="seu@email.com" required>
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Senha</label>
+
+<div class="input-wrapper">
+<span class="icon">🔒</span>
+<input type="password" id="senha" placeholder="********" required>
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Confirmar senha</label>
+
+<div class="input-wrapper">
+<span class="icon">🔐</span>
+<input type="password" id="confirmarSenha" placeholder="********" required>
+</div>
+
+</div>
+
+<button type="submit" id="registerBtn">
+
+<span class="btn-text">Criar Conta</span>
+<span class="loader"></span>
+
+</button>
+
+<p id="msg"></p>
+
+<p class="login-link">
+
+Já possui conta?
+<a href="login.html">Entrar</a>
+
+</p>
+
+</form>
+
+</div>
+
+<script src="cadastro.js"></script>
+
+</body>
+</html>

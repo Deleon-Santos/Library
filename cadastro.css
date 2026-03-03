@@ -1,0 +1,235 @@
+:root {
+    --background:#f4f4f4 ;
+    --background-box: #dcdcdc;
+    --background-destaque-box: #ababab;
+    --background-destaque-element: #919191fa;
+    --color: #000;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:linear-gradient(135deg,#ffffff,#c9c7c7);
+
+}
+
+/* CONTAINER */
+
+.register-container{
+
+width:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+animation:fadeIn 0.8s ease;
+
+}
+
+/* CARD */
+
+.register-card{
+
+background:var(--background-box);
+
+padding:40px;
+
+border-radius:10px;
+
+width:360px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.15);
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+/* TITULO */
+
+.logo{
+
+text-align:center;
+font-weight:700;
+
+}
+
+.subtitle{
+
+text-align:center;
+font-size:14px;
+opacity:0.7;
+
+}
+
+/* INPUTS */
+
+.input-group{
+
+display:flex;
+flex-direction:column;
+gap:6px;
+
+}
+
+.input-wrapper{
+
+display:flex;
+align-items:center;
+
+background:var(--background-destaque-box);
+
+border-radius:6px;
+
+padding:10px;
+
+}
+
+.input-wrapper input{
+
+border:none;
+background:none;
+outline:none;
+
+flex:1;
+
+font-size:14px;
+
+}
+
+.icon{
+
+margin-right:8px;
+
+}
+
+/* BOTÃO */
+
+button{
+
+margin-top:10px;
+
+padding:12px;
+
+border:none;
+
+border-radius:6px;
+
+background:var(--background-destaque-element);
+
+font-weight:bold;
+
+cursor:pointer;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+gap:10px;
+
+transition:0.2s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+}
+
+/* LOADER */
+
+.loader{
+
+width:16px;
+height:16px;
+
+border:2px solid transparent;
+border-top:2px solid black;
+
+border-radius:50%;
+
+display:none;
+
+animation:spin 0.7s linear infinite;
+
+}
+
+button.loading .loader{
+
+display:block;
+
+}
+
+button.loading .btn-text{
+
+display:none;
+
+}
+
+/* MENSAGEM */
+
+#msg{
+
+text-align:center;
+font-size:14px;
+min-height:20px;
+
+}
+
+/* LINK LOGIN */
+
+.login-link{
+
+text-align:center;
+font-size:14px;
+
+}
+
+.login-link a{
+
+font-weight:bold;
+text-decoration:none;
+
+}
+
+/* ANIMAÇÕES */
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
