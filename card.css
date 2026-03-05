@@ -26,3 +26,102 @@
 .collection p{
     color: #555;
 }
+
+/* ========================= */
+/* MODAL OVERLAY */
+/* ========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ========================= */
+/* CARD NOVA COLEÇÃO */
+/* ========================= */
+
+.new-colection-card {
+  background: var(--background-box);
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: scaleIn 0.2s ease;
+}
+
+.new-colection-card h4 {
+  margin-bottom: 20px;
+  color: var(--color);
+}
+
+.new-colection-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--background-destaque-box);
+  background: var(--background);
+  margin-bottom: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.new-colection-card input:focus {
+  border-color: var(--background-destaque-element);
+}
+
+/* ========================= */
+/* BOTÕES */
+/* ========================= */
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--background-destaque-element);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--background-destaque-box);
+  cursor: pointer;
+}
+
+/* ========================= */
+/* ANIMAÇÃO */
+/* ========================= */
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

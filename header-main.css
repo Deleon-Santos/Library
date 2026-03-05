@@ -95,6 +95,7 @@
     margin-right: 10px;
     cursor: pointer;
     text-decoration: none;
+    border: none;
 }
 
 .login img{

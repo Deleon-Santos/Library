@@ -28,7 +28,7 @@ btn.classList.add("loading");
 
 try{
 
-const response = await fetch(`${API_URL}/register`,{
+const response = await fetch(`${API_URL}/cadastro`,{
 
 method:"POST",
 
@@ -53,7 +53,7 @@ msg.textContent="Conta criada com sucesso!";
 
 setTimeout(()=>{
 
-window.location.href="login.html";
+window.location.href="index_2.html";
 
 },1200);
 

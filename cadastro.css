@@ -1,6 +1,6 @@
 :root {
-    --background:#f4f4f4 ;
-    --background-box: #dcdcdc;
+    --background:#ffffff ;
+    --background-box: #e9e9e9;
     --background-destaque-box: #ababab;
     --background-destaque-element: #919191fa;
     --color: #000;
@@ -21,7 +21,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-background:linear-gradient(135deg,#ffffff,#c9c7c7);
+background:linear-gradient(135deg,#ffffff91,#c9c7c7);
 
 }
 

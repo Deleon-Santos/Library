@@ -7,6 +7,8 @@ import {
 
 import { iniciarNavegacao } from "./scripts_nav.js";
 
+import "./scripts_modal.js";
+
 const homeBtn = document.getElementById("homeBtn");
 const libBtn = document.getElementById("lib");
 const focusSearch = document.getElementById("focusSearch");
