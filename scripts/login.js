@@ -64,7 +64,7 @@ localStorage.setItem("user", JSON.stringify(data));
 console.log("Usuário logado:", data);
 
 setTimeout(()=>{
-window.location.href="index.html";
+window.location.href="./page/login.html";
 },1000);
 
 }else{
