@@ -2,7 +2,7 @@
     /* min-width: 200px; */
     padding: 10px;
     border-radius: 10px;
-    background: #fff;
+    background:var(--background-destaque-box);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: 0.3s;
 }

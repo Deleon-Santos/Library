@@ -18,7 +18,7 @@
 .main-container .main-colection{
     max-height: 68vh;
     overflow-y: auto;
-
+    
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 

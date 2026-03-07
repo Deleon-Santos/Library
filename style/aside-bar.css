@@ -33,7 +33,15 @@
   color: var(--color);
   font-size: .9rem;
   padding: 10px;
+  /* transition: transform 0.2s ease-in-out;
+  display: inline-block; */
 }
+
+/* .aside-bar__session a:hover {
+  transform: scale(1.1);
+  
+} */
+
 .aside-bar__session h3 {
   font-size: .8rem;
   border-radius: 10px;
