@@ -1,18 +1,22 @@
 import { getUserId } from "./login.js";
+// import { getColecoes } from "./scripts_api.js";
 
 const API_URL = "http://127.0.0.1:5000";
 
+
 function criarCardColecao(colecao){
-
+    
     const container = document.getElementById("biblioteca");
-
+    if(!window.location.pathname.includes("collectionbiblioteca")){
+    return;
+}
     const card = document.createElement("div");
     card.classList.add("collection");
 
     card.innerHTML = `
         <img src="https://thumbs.dreamstime.com/b/livros-de-escola-coloridos-da-pilha-do-grupo-com-livro-aberto-88142348.jpg" alt="Coleção">
         <h4>${colecao.nome}</h4>
-        <p>ID da coleção: ${colecao.id}</p>
+        <p>ID da coleção: ${colecao.colecao_id}</p>
     `;
 
     container.appendChild(card);

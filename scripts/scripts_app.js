@@ -54,8 +54,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// function iniciarScrollHome(){
+
+//     const grid = document.querySelector(".home-grid");
+//     const left = document.getElementById("scrollLeft");
+//     const right = document.getElementById("scrollRight");
+
+//     const scrollAmount = 400;
+
+//     left.addEventListener("click", () => {
+//         grid.scrollBy({
+//             left: -scrollAmount,
+//             behavior: "smooth"
+//         });
+//     });
+
+//     right.addEventListener("click", () => {
+//         grid.scrollBy({
+//             left: scrollAmount,
+//             behavior: "smooth"
+//         });
+//     });
+
+// }
 
 
+async function carregarDestaques(){
+
+    const res = await fetch("../data/livros.json");
+    const data = await res.json();
+
+    const grid = document.querySelector(".home-grid");
+
+    grid.innerHTML = "";
+
+    data.livros_destaque.forEach(livro => {
+
+        const card = document.createElement("div");
+        card.classList.add("home-card");
+
+        card.innerHTML = `
+        <a href="${livro.link}" target="_blank">
+            
+                <img src="${livro.capa}">
+                <h4>${livro.titulo}</h4>
+        </a>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
 
 function mostrarHome() {
 
@@ -73,7 +123,10 @@ function mostrarHome() {
 
             <div class="home-highlight">
 
+                <div>
                 <img src="https://covers.openlibrary.org/b/title/Biblia%20Sagrada-L.jpg">
+                
+                </div>
 
                 <div class="highlight-info">
                     <h4>Bíblia Sagrada</h4>
@@ -82,44 +135,25 @@ function mostrarHome() {
                     O livro mais lido da história da humanidade.
                     Uma coleção de textos religiosos e históricos que
                     influenciaram culturas no mundo inteiro.
-                    </p>
-
-                    <button class="btn-primary">
-                        Buscar este livro
-                    </button>
-
+                    </p>                
                 </div>
-
             </div>
-
-        </section>
-
-
-        <section class="home-section">
+            
+         <section class="home-section">
 
             <h3>📖 Sugestões para você</h3>
 
-            <div class="home-grid">
+            
 
-                <div class="home-card">
-                    <img src="https://covers.openlibrary.org/b/title/Dom%20Casmurro-M.jpg">
-                    <h4>Dom Casmurro</h4>
+               
+
+                <div class="home-grid">
+                
+                
+                
                 </div>
 
-                <div class="home-card">
-                    <img src="https://covers.openlibrary.org/b/title/O%20Pequeno%20Principe-M.jpg">
-                    <h4>O Pequeno Príncipe</h4>
-                </div>
-
-                <div class="home-card">
-                    <img src="https://covers.openlibrary.org/b/title/1984-M.jpg">
-                    <h4>1984</h4>
-                </div>
-
-                <div class="home-card">
-                    <img src="https://covers.openlibrary.org/b/title/Harry%20Potter-M.jpg">
-                    <h4>Harry Potter</h4>
-                </div>
+                
 
             </div>
 
@@ -128,6 +162,11 @@ function mostrarHome() {
     </div>
     
     `;
+
+    carregarDestaques();
+    
+    
+    
 }
 
 // -----------------------------------------------------------------------------

@@ -1,54 +1,59 @@
     
-  
-  [
+  {
+  "livros_destaque": [
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "Dom Casmurro",
+      "capa": "https://covers.openlibrary.org/b/title/Dom%20Casmurro-M.jpg"
+    },
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "O Pequeno Príncipe",
+      "capa": "https://covers.openlibrary.org/b/title/O%20Pequeno%20Principe-M.jpg"
+    },
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "1984",
+      "capa": "https://covers.openlibrary.org/b/title/1984-M.jpg"
+    },
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor", 
+      "titulo": "Harry Potter",
+      "capa": "https://covers.openlibrary.org/b/title/Harry%20Potter-M.jpg"
+    },
     
-    { "id": 101, "titulo": "Orgulho e Preconceito", "autor": "Jane Austen", "descricao": "Um clássico sobre amor e diferenças sociais.", "img": "img/1.webp", "bibliotecaId": 1 },
-    { "id": 102, "titulo": "Jane Eyre", "autor": "Charlotte Bronte", "descricao": "A jornada emocional de uma jovem governanta.", "img": "img/1.webp", "bibliotecaId": 1 },
-    { "id": 103, "titulo": "Anna Karenina", "autor": "Leo Tolstoi", "descricao": "Uma história intensa sobre paixão e sociedade.", "img": "img/1.webp", "bibliotecaId": 1 },
-    { "id": 104, "titulo": "O Morro dos Ventos Uivantes", "autor": "Emily Bronte", "descricao": "Amor e vingança em uma narrativa sombria.", "img": "img/1.webp", "bibliotecaId": 1 },
-    { "id": 105, "titulo": "Como Eu Era Antes de Voce", "autor": "Jojo Moyes", "descricao": "Uma história moderna sobre transformação.", "img": "img/1.webp", "bibliotecaId": 1 },
-
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "O Hobbit",
+      "capa": "https://covers.openlibrary.org/b/title/O%20Hobbit-M.jpg"
+    },
+   
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "Crime e Castigo",
+      "capa": "https://covers.openlibrary.org/b/title/Crime%20e%20Castigo-M.jpg"
+    },
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "Drácula",
+      "capa": "https://covers.openlibrary.org/b/title/Dracula-M.jpg"
+    },
+    {
+      "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+      "titulo": "O Alquimista",
+      "capa": "https://covers.openlibrary.org/b/title/O%20Alquimista-M.jpg"
+    },
     
-    { "id": 201, "titulo": "Duna", "autor": "Frank Herbert", "descricao": "Uma saga futurista de poder e sobrevivencia.", "img": "img/1.webp", "bibliotecaId": 2 },
-    { "id": 202, "titulo": "Neuromancer", "autor": "William Gibson", "descricao": "O marco do genero cyberpunk.", "img": "img/1.webp", "bibliotecaId": 2 },
-    { "id": 203, "titulo": "Admiravel Mundo Novo", "autor": "Aldous Huxley", "descricao": "Uma distopia sobre controle social.", "img": "img/1.webp", "bibliotecaId": 2 },
-    { "id": 204, "titulo": "Fahrenheit 451", "autor": "Ray Bradbury", "descricao": "Uma sociedade onde livros sao proibidos.", "img": "img/1.webp", "bibliotecaId": 2 },
-    { "id": 205, "titulo": "O Hobbit", "autor": "J.R.R. Tolkien", "descricao": "A aventura de Bilbo Bolseiro.", "img": "img/1.webp", "bibliotecaId": 2 },
-
-    
-    { "id": 301, "titulo": "Sapiens", "autor": "Yuval Noah Harari", "descricao": "Uma breve historia da humanidade.", "img": "img/1.webp", "bibliotecaId": 3 },
-    { "id": 302, "titulo": "Armas, Germes e Aco", "autor": "Jared Diamond", "descricao": "Os fatores que moldaram civilizacoes.", "img": "img/1.webp", "bibliotecaId": 3 },
-    { "id": 303, "titulo": "SPQR", "autor": "Mary Beard", "descricao": "A historia da Roma Antiga.", "img": "img/spqr.webp", "bibliotecaId": 3 },
-    { "id": 304, "titulo": "Os Canhoes de Agosto", "autor": "Barbara Tuchman", "descricao": "Os primeiros dias da Primeira Guerra.", "img": "img/1.webp", "bibliotecaId": 3 },
-    { "id": 305, "titulo": "Genghis Khan", "autor": "Jack Weatherford", "descricao": "O impacto do Imperio Mongol.", "img": "img/1.webp", "bibliotecaId": 3 },
-
-    
-    { "id": 401, "titulo": "O Estrangeiro", "autor": "Albert Camus", "descricao": "Uma reflexao sobre o absurdo.", "img": "img/1.webp", "bibliotecaId": 4 },
-    { "id": 402, "titulo": "A Queda", "autor": "Albert Camus", "descricao": "Culpa e julgamento moral.", "img": "img/1.webp", "bibliotecaId": 4 },
-    { "id": 403, "titulo": "O Homem Revoltado", "autor": "Albert Camus", "descricao": "Uma analise da revolta humana.", "img": "img/1.webp", "bibliotecaId": 4 },
-    { "id": 404, "titulo": "Assim Falou Zaratustra", "autor": "Friedrich Nietzsche", "descricao": "Ideias sobre valores e existencia.", "img": "img/1.webp", "bibliotecaId": 4 },
-    { "id": 405, "titulo": "Meditacoes", "autor": "Marco Aurelio", "descricao": "Reflexoes do imperador estoico.", "img": "img/1.webp", "bibliotecaId": 4 },
-
-    
-    { "id": 501, "titulo": "Uma Breve Historia do Tempo", "autor": "Stephen Hawking", "descricao": "Os misterios do universo explicados.", "img": "img/1.webp", "bibliotecaId": 5 },
-    { "id": 502, "titulo": "O Gene", "autor": "Siddhartha Mukherjee", "descricao": "A historia da genetica.", "img": "img/1.webp", "bibliotecaId": 5 },
-    { "id": 503, "titulo": "Cosmos", "autor": "Carl Sagan", "descricao": "Uma viagem pelo espaco.", "img": "img/cosmos.webp", "bibliotecaId": 5 },
-    { "id": 504, "titulo": "O Andar do Bebado", "autor": "Leonard Mlodinow", "descricao": "Como o acaso influencia nossas vidas.", "img": "img/1.webp", "bibliotecaId": 5 },
-    { "id": 505, "titulo": "Astrofisica para Apressados", "autor": "Neil deGrasse Tyson", "descricao": "O universo de forma acessivel.", "img": "img/1.webp", "bibliotecaId": 5 },
-
-    
-    { "id": 601, "titulo": "O Pequeno Principe", "autor": "Antoine de Saint-Exupery", "descricao": "Uma fabula sobre amizade.", "img": "img/1.webp", "bibliotecaId": 6 },
-    { "id": 602, "titulo": "Matilda", "autor": "Roald Dahl", "descricao": "Uma menina genial enfrenta desafios.", "img": "img/1.webp", "bibliotecaId": 6 },
-    { "id": 603, "titulo": "Charlotte e a Teia de Aranha", "autor": "E.B. White", "descricao": "Uma amizade inesquecivel.", "img": "img/1.webp", "bibliotecaId": 6 },
-    { "id": 604, "titulo": "Onde Vivem os Monstros", "autor": "Maurice Sendak", "descricao": "Uma aventura imaginativa.", "img": "img/1.webp", "bibliotecaId": 6 },
-    { "id": 605, "titulo": "O Gruffalo", "autor": "Julia Donaldson", "descricao": "Uma historia divertida e criativa.", "img": "img/1.webp", "bibliotecaId": 6 },
-
-    
-    { "id": 701, "titulo": "Watchmen", "autor": "Alan Moore", "descricao": "Uma abordagem realista dos super-herois.", "img": "img/1.webp", "bibliotecaId": 7 },
-    { "id": 702, "titulo": "Maus", "autor": "Art Spiegelman", "descricao": "O holocausto em forma de HQ.", "img": "img/maus.webp", "bibliotecaId": 7 },
-    { "id": 703, "titulo": "Batman: O Cavaleiro das Trevas", "autor": "Frank Miller", "descricao": "O retorno de um Batman envelhecido.", "img": "img/1.webp", "bibliotecaId": 7 },
-    { "id": 704, "titulo": "Saga", "autor": "Brian K. Vaughan", "descricao": "Fantasia e ficcao cientifica combinadas.", "img": "img/1.webp", "bibliotecaId": 7 },
-    { "id": 705, "titulo": "Persepolis", "autor": "Marjane Satrapi", "descricao": "Memorias da Revolucao Iraniana.", "img": "img/1.webp", "bibliotecaId": 7 }
+    {
+    "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+    "titulo": "Fundação",
+    "capa": "https://covers.openlibrary.org/b/id/8234147-L.jpg"
+  },
+  {
+    "link":"https://www.amazon.com.br/events/semanadoconsumidor/6/ref=pday_offers_programas/?_encoding=UTF8&_encoding=UTF8&pd_rd_w=JZwj0&content-id=amzn1.sym.7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_p=7b50efe9-a026-4628-84e3-fdb440400df2&pf_rd_r=6H4A0X5R12YXY32XETZ7&pd_rd_wg=zXAPe&pd_rd_r=45b35c9e-98fa-46bc-9d59-59e189e3a5ba&ref_=pd_hp_d_atf_unk&bubble-id=deals-collection-ebooks#dealsGridLinkAnchor",
+    "titulo": "O Nome do Vento",   
+    "capa": "https://covers.openlibrary.org/b/id/8235083-L.jpg"
+  }
 
   ]
-
+}

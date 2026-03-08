@@ -4,7 +4,7 @@
     border-radius: 10px;
     background: var(--background-box);
     padding: 10px;
-  
+    /* height: 100dvh; */
 }
 .main-container h2{
     font-size:.8rem;
@@ -16,7 +16,7 @@
 }
 
 .main-container .main-colection{
-    max-height: 68vh;
+    max-height: 70dvh; 
     overflow-y: auto;
     
     display: grid;
@@ -28,6 +28,9 @@
     /* border: 5px solid red; */
 }
 
+.main-colection:has(.home){
+    display:flex
+}
 .main-colection::-webkit-scrollbar{
     width: 1px;
 }
