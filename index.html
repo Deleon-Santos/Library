@@ -1,53 +1,298 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+import {
+    getColecoes,
+    buscarLivrosAPI,
+    getLivrosColecao,
+    adicionarLivroColecao
+}  from "./scripts_api.js";
 
-    <title>Login • Library</title>
+import { iniciarNavegacao } from "./scripts_nav.js";
 
-    <link rel="stylesheet" href="./style/login.css" />
-  </head>
+import "./scripts_modal.js";
 
-  <body>
-    <div class="login-container">
-      <form id="loginForm" class="login-card">
-        <h1 class="logo">Library</h1>
 
-        <p class="subtitle">Acesse sua biblioteca</p>
+const renderhome = document.getElementById("renderhome");
+// const homeBtn = document.getElementById("homeBtn");
+const libBtn = document.getElementById("lib");
+const focusSearch = document.getElementById("focusSearch");
 
-        <div class="input-group">
-          <label>Email</label>
+const prevBtn = document.getElementById("prevSearch");
+const nextBtn = document.getElementById("nextSearch");
 
-          <div class="input-wrapper">
-            <span class="icon">📧</span>
-            <input
-              type="email"
-              id="email"
-              placeholder="seu@email.com"
-              required
-            />
-          </div>
-        </div>
+const input = document.getElementById("searchInput");
+const btn = document.getElementById("searchBtn");
+const results = document.getElementById("biblioteca");
 
-        <div class="input-group">
-          <label>Senha</label>
+let colecaoAtual = null;
+let searchHistory = [];
+let currentSearchIndex = -1;
 
-          <div class="input-wrapper">
-            <span class="icon">🔒</span>
-            <input type="password" id="senha" placeholder="********" required />
-          </div>
-        </div>
+// -----------------------------------------------------------------------------
+// iniciar a navegação com o dom ativado
+// function mostrarHome() {
 
-        <button type="submit" id="loginBtn">
-          <span class="btn-text">Entrar</span>
-          <span class="loader"></span>
-        </button>
-        <a href="./page/cadastro.html">Cadastrar-se</a>
-        <p id="msg"></p>
-      </form>
+//     results.innerHTML = `
+        
+        
+//     `;
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    iniciarNavegacao({
+        homeBtn,
+        libBtn,
+        focusSearch,
+        prevBtn,
+        nextBtn,
+        input,
+        carregarColecoes,
+        buscarLivros,
+        mostrarHome
+    });
+
+    mostrarHome();
+
+});
+
+
+
+
+function mostrarHome() {
+
+    results.innerHTML = `
+    
+    <div class="home">
+
+        <section class="home-welcome">
+            <h2>Bem-vindo à sua Biblioteca 📚</h2>
+            <p>Descubra novos livros, organize suas leituras e construa sua coleção.</p>
+        </section>
+
+        <section class="home-section">
+            <h3>🔥 Livro mais buscado</h3>
+
+            <div class="home-highlight">
+
+                <img src="https://covers.openlibrary.org/b/title/Biblia%20Sagrada-L.jpg">
+
+                <div class="highlight-info">
+                    <h4>Bíblia Sagrada</h4>
+
+                    <p>
+                    O livro mais lido da história da humanidade.
+                    Uma coleção de textos religiosos e históricos que
+                    influenciaram culturas no mundo inteiro.
+                    </p>
+
+                    <button class="btn-primary">
+                        Buscar este livro
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="home-section">
+
+            <h3>📖 Sugestões para você</h3>
+
+            <div class="home-grid">
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/Dom%20Casmurro-M.jpg">
+                    <h4>Dom Casmurro</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/O%20Pequeno%20Principe-M.jpg">
+                    <h4>O Pequeno Príncipe</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/1984-M.jpg">
+                    <h4>1984</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/Harry%20Potter-M.jpg">
+                    <h4>Harry Potter</h4>
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
+    
+    `;
+}
 
-    <script type="module" src="./scripts/login.js" defer></script>
-  </body>
-</html>
+// -----------------------------------------------------------------------------
+// carregar coleções
+// document.addEventListener("DOMContentLoaded", carregarColecoes);
+btn.addEventListener("click", carregarColecoes);
+async function carregarColecoes() {
+
+    results.innerHTML = ""; // remove a home
+    // mostrarHome();
+    try {
+
+        const colecoes = await getColecoes();
+
+        
+
+        colecoes.forEach(colecao => {
+
+            const card = document.createElement("div");
+            card.classList.add("collection");
+
+            card.innerHTML = `
+                
+                    <img src="https://thumbs.dreamstime.com/b/livros-de-escola-coloridos-da-pilha-do-grupo-com-livro-aberto-88142348.jpg">
+                    <h3>${colecao.nome}</h3>
+                
+            `;
+
+            card.addEventListener("click", () => {
+                abrirColecao(colecao.id);
+            });
+
+            results.appendChild(card);
+        });
+
+    } catch (error) {
+
+        console.error(error);
+        results.innerHTML = "<p>Erro ao carregar coleções</p>";
+    }
+}
+
+
+// busca livros
+btn.addEventListener("click", buscarLivros);
+
+async function buscarLivros() {
+
+    const termo = input.value.trim();
+
+    if (!termo) return;
+
+    results.innerHTML = "<p>Buscando...</p>";
+
+    try {
+
+        const livros = await buscarLivrosAPI(termo);
+
+        mostrarResultados(livros);
+
+    } catch (erro) {
+
+        console.error(erro);
+        results.innerHTML = "<p>Erro ao buscar livros</p>";
+    }
+}
+
+
+// renderiza resultados
+function mostrarResultados(livros) {
+
+    results.innerHTML = "";
+
+    livros.forEach(livro => {
+
+        const capa = livro.cover_i
+            ? `https://covers.openlibrary.org/b/id/${livro.cover_i}-M.jpg`
+            : "https://via.placeholder.com/128x190?text=Sem+Capa";
+
+        const card = document.createElement("div");
+        card.classList.add("collection");
+        card.innerHTML = `
+            
+                <img src="${capa}">
+                <h4>${livro.title}</h4>
+                <p>${livro.author_name?.[0] || "Autor desconhecido"}</p>
+                <button>Adicionar</button>
+            
+        `;
+
+        card.querySelector("button").addEventListener("click", () => {
+            adicionarLivro(livro);
+        });
+
+        results.appendChild(card);
+    });
+}
+
+
+// abrir coleção
+async function abrirColecao(id) {
+
+    colecaoAtual = id;
+
+    results.innerHTML = "<p>Carregando livros...</p>";
+
+    try {
+
+        const data = await getLivrosColecao(id);
+
+        results.innerHTML = "";
+
+        data.livros.forEach(livro => {
+
+            const capa = livro.capa
+                ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
+                : "https://via.placeholder.com/128x190?text=Sem+Capa";
+
+            const card = document.createElement("div");
+            card.classList.add("collection");
+
+            card.innerHTML = `
+                <img src="${capa}">
+                <h4>${livro.titulo}</h4>
+                <p>${livro.descricao}</p>
+            `;
+
+            results.appendChild(card);
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+        results.innerHTML = "<p>Erro ao carregar livros</p>";
+
+    }
+}
+// adicionar livro
+async function adicionarLivro(livro) {
+
+    if (!colecaoAtual) {
+        alert("Abra uma coleção primeiro!");
+        return;
+    }
+    console.log(livro);
+    const livroFormatado = {
+        titulo: livro.title,
+        autor: livro.author_name?.[0] || "Autor desconhecido",
+        descricao: livro.first_sentence?.[0] || "Sem descrição",
+        ano: livro.first_publish_year || null,
+        capa: livro.cover_i
+    };
+
+    try {
+
+        await adicionarLivroColecao(colecaoAtual, livroFormatado);
+
+        alert("Livro adicionado!");
+
+        abrirColecao(colecaoAtual);
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Erro ao adicionar livro: " + error.message);
+    }
+}
