@@ -1,0 +1,57 @@
+.home{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.home-welcome{
+    background:var(--background-card);
+    padding:25px;
+    border-radius:12px;
+}
+
+.home-section h3{
+    margin-bottom:15px;
+}
+
+.home-highlight{
+    display:flex;
+    gap:25px;
+    background:var(--background-card);
+    padding:20px;
+    border-radius:12px;
+}
+
+.home-highlight img{
+    width:140px;
+    border-radius:8px;
+}
+
+.highlight-info{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.home-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+    gap:20px;
+}
+
+.home-card{
+    background:var(--background-card);
+    padding:10px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.2s;
+}
+
+.home-card:hover{
+    transform:scale(1.05);
+}
+
+.home-card img{
+    width:100%;
+    border-radius:6px;
+}

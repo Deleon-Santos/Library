@@ -9,7 +9,9 @@ import { iniciarNavegacao } from "./scripts_nav.js";
 
 import "./scripts_modal.js";
 
-const homeBtn = document.getElementById("homeBtn");
+
+const renderhome = document.getElementById("renderhome");
+// const homeBtn = document.getElementById("homeBtn");
 const libBtn = document.getElementById("lib");
 const focusSearch = document.getElementById("focusSearch");
 
@@ -26,13 +28,13 @@ let currentSearchIndex = -1;
 
 // -----------------------------------------------------------------------------
 // iniciar a navegação com o dom ativado
-function mostrarHome() {
+// function mostrarHome() {
 
-    results.innerHTML = `
+//     results.innerHTML = `
         
         
-    `;
-}
+//     `;
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -52,14 +54,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
+
+function mostrarHome() {
+
+    results.innerHTML = `
+    
+    <div class="home">
+
+        <section class="home-welcome">
+            <h2>Bem-vindo à sua Biblioteca 📚</h2>
+            <p>Descubra novos livros, organize suas leituras e construa sua coleção.</p>
+        </section>
+
+        <section class="home-section">
+            <h3>🔥 Livro mais buscado</h3>
+
+            <div class="home-highlight">
+
+                <img src="https://covers.openlibrary.org/b/title/Biblia%20Sagrada-L.jpg">
+
+                <div class="highlight-info">
+                    <h4>Bíblia Sagrada</h4>
+
+                    <p>
+                    O livro mais lido da história da humanidade.
+                    Uma coleção de textos religiosos e históricos que
+                    influenciaram culturas no mundo inteiro.
+                    </p>
+
+                    <button class="btn-primary">
+                        Buscar este livro
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="home-section">
+
+            <h3>📖 Sugestões para você</h3>
+
+            <div class="home-grid">
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/Dom%20Casmurro-M.jpg">
+                    <h4>Dom Casmurro</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/O%20Pequeno%20Principe-M.jpg">
+                    <h4>O Pequeno Príncipe</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/1984-M.jpg">
+                    <h4>1984</h4>
+                </div>
+
+                <div class="home-card">
+                    <img src="https://covers.openlibrary.org/b/title/Harry%20Potter-M.jpg">
+                    <h4>Harry Potter</h4>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+    
+    `;
+}
+
 // -----------------------------------------------------------------------------
 // carregar coleções
-document.addEventListener("DOMContentLoaded", carregarColecoes);
-
+// document.addEventListener("DOMContentLoaded", carregarColecoes);
+btn.addEventListener("click", carregarColecoes);
 async function carregarColecoes() {
 
-    
-    mostrarHome();
+    results.innerHTML = ""; // remove a home
+    // mostrarHome();
     try {
 
         const colecoes = await getColecoes();
