@@ -1,21 +1,19 @@
-/* :root {
-    --background:#f4f4f4 ;
-    --background-box: #dcdcdc;
-    --background-destaque-box: #ababab;
-    --background-destaque-element: #919191fa;
-    --color: #000;
-    
+/* tema escuro (padrão) */
+:root{
+    --background:#070707;
+    --background-box:#2e2e2e;
+    --background-destaque-box:#6c6c6c;
+    --background-destaque-element:#6a6969fa;
+    --color:#f6f5f5;
+}
 
-} */
-
-:root {
-    --background:#070707 ;
-    --background-box: #2e2e2e;
-    --background-destaque-box: #6c6c6c;
-    --background-destaque-element: #6a6969fa;
-    --color: #f6f5f5;
-    
-
+/* tema claro */
+body.light{
+    --background:#f4f4f4;
+    --background-box:#dcdcdc;
+    --background-destaque-box:#ababab;
+    --background-destaque-element:#919191fa;
+    --color:#000;
 }
 * {
   padding: 0;
@@ -32,7 +30,7 @@
 h1,h2,h3, i{
   color: var(--color);
 }
-a, button , span{
+a, button {
  display: inline-block;
  transition: transform 0.2s ease-in-out;
 }

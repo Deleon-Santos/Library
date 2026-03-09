@@ -72,5 +72,15 @@
   padding: 0;
   font-size: 1rem;
 }
-/* .botton{
-  /* height: 350px; */
+.conf{
+  
+  padding: 10px;
+  
+}
+#toggle i{
+  background-color: var(--background);
+  border: none;
+  color: var(--color);
+  font-size: 1rem;
+  cursor: pointer;
+}

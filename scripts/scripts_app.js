@@ -335,3 +335,23 @@ async function adicionarLivro(livro) {
         alert("Erro ao adicionar livro: " + error.message);
     }
 }
+
+
+
+const config = document.getElementById("toggle");
+
+config.addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    config.innerHTML = document.body.classList.contains("light")
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+
+    // salvar preferência
+    if(document.body.classList.contains("light")){
+        localStorage.setItem("theme","light");
+    }else{
+        localStorage.setItem("theme","dark");
+    }
+});
