@@ -6,7 +6,9 @@
   top:0;
   left:0;
   bottom: 0;
-  width: 260px;
+  /* max-width: 260px; */
+  width: 200px; 
+  /* width: 260px; */
   background: var(--background);
   padding: 10px;
   height: 100dvh;

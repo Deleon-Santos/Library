@@ -22,10 +22,10 @@ body.light{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.interface {
+/* .interface {
   padding: 1px;
   background-color: var(--background);
-}
+} */
 
 h1,h2,h3, i{
   color: var(--color);
@@ -42,3 +42,4 @@ a:hover, button:hover, span:hover{
   body{
     background-color: var(--background);
   }
+  

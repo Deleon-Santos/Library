@@ -355,3 +355,10 @@ config.addEventListener("click", () => {
         localStorage.setItem("theme","dark");
     }
 });
+
+const btnBurger = document.getElementById("btnBurguer");
+const aside = document.querySelector(".aside-bar");
+
+btnBurger.addEventListener("click", () => {
+    aside.classList.toggle("open");
+});

@@ -1,0 +1,41 @@
+@media screen and (max-width: 640px) {
+      
+
+      .aside-bar{
+      position: fixed;
+      left:0;
+      top:70px;
+      width:200px;
+      height:100vh;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index:1000;
+  }
+
+  .aside-bar.open{
+      transform: translateX(0);
+  }
+    
+      main.container {
+        margin-left:0;
+        width: 100%;
+      }
+      .header__nav{
+        display:flex;
+        align-items:center;
+        gap:15px;
+      }
+      #btnBurguer{
+        display: block;
+      }
+
+      .aside-bar{
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .aside-bar.open{
+    transform: translateX(0);
+  }
+
+  }

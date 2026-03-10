@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../style/footer.css" />
     <link rel="stylesheet" href="../style/card.css" />
     <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/midia_query.css" />
 
     <link
       rel="stylesheet"
@@ -75,7 +76,9 @@
       </aside>
       <main class="container">
         <header class="header">
-          <nav class="header__nav">
+          <nav class="header__nav" id="burger">
+          <i class="fa-solid fa-bars" id="btnBurguer"></i>
+
             <div class="navegation">
               <button id="prevSearch">
                 <i class="fa-solid fa-chevron-left"></i></button
@@ -96,7 +99,7 @@
 
             <div class="login" id="sing_in">
               <button class="login-inscrever" id="inscrever" onclick="logout()">
-                Sing out
+                Sair
               </button>
 
               <img src="../img/perfil.png" alt="imagem de perfil" />
