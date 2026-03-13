@@ -337,6 +337,16 @@ async function adicionarLivro(livro) {
 }
 
 
+// -------------------------------
+const configBtn = document.getElementById("configBtn");
+const configBox = document.getElementById("configBox");
+
+configBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    configBox.classList.toggle("open");
+});
+
+// ------------------------------
 
 const config = document.getElementById("toggle");
 
@@ -356,6 +366,7 @@ config.addEventListener("click", () => {
     }
 });
 
+// -----------------------
 const btnBurger = document.getElementById("btnBurguer");
 const aside = document.querySelector(".aside-bar");
 

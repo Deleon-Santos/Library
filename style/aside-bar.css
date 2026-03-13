@@ -35,21 +35,22 @@
   color: var(--color);
   font-size: .9rem;
   padding: 10px;
+  padding-left: 0;
   /* transition: transform 0.2s ease-in-out;
   display: inline-block; */
 }
 
-/* .aside-bar__session a:hover {
-  transform: scale(1.1);
+.aside-bar__session i {
+  margin-right: 15px;
   
-} */
+}
 
 .aside-bar__session h3 {
   font-size: .8rem;
   border-radius: 10px;
 }
 
-.botton .new-colection{
+ .new-colection {
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -59,6 +60,13 @@
   border-radius: 10px;
   padding:15px ;
 }
+
+#new-lib{ 
+  border-radius: 8px;
+  border: none;
+  height: 40px;
+}
+
 .new-colection a {
   
   padding: 5px;
@@ -74,14 +82,32 @@
   padding: 0;
   font-size: 1rem;
 }
+
 .conf{
-  
-  padding: 10px;
-  
+    display: none;
+}
+
+.conf.open{
+    display: block;
+}
+
+.conf{
+  width: 180px;
+    top: 444px;
+    left: 10px;
+    display: none;
+    position: absolute;
+    background: var(--background-box);
+    padding: 15px;
+    padding-left: 30px;
+    border-radius: 0 0 8px 8px;
+
 }
 #toggle i{
-  background-color: var(--background);
-  border: none;
+  width: 30px;
+  background-color: var(--background-box);
+  border-radius: 8px;
+  margin: 0;
   color: var(--color);
   font-size: 1rem;
   cursor: pointer;
