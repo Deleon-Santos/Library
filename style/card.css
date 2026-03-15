@@ -1,4 +1,5 @@
 .collection{
+  /* position: fixed; */
     /* min-width: 200px; */
     padding: 10px;
     border-radius: 10px;
@@ -6,6 +7,20 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
+.collection .add{
+    /* position: relative; */
+    /* margin-top: -600px; */
+  width: 30px;
+  height: 30px;
+  align-items: right;
+  background-color: rgb(1, 78, 1);
+  /* border: none; */
+  border-radius: 8px;
+  
+  
+
+}
+
 
 .collection:hover{
     transform: scale(1.01);

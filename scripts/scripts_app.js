@@ -218,9 +218,10 @@ function mostrarResultados(livros) {
         card.innerHTML = `
             
                 <img src="${capa}">
+                <button class=add><i class="fa-solid fa-plus"></i></button>
                 <h4>${livro.title}</h4>
                 <p>${livro.author_name?.[0] || "Autor desconhecido"}</p>
-                <button>Adicionar</button>
+                
             
         `;
 
