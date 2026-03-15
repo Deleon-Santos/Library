@@ -1,8 +1,7 @@
 import { getUserId } from "./login.js";
 // import { getColecoes } from "./scripts_api.js";
 
-const API_URL = "http://127.0.0.1:5000";
-
+const API_URL = "https://library-backend-b4as.onrender.com"
 
 function criarCardColecao(colecao){
     
@@ -28,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("modalOverlay");
     const cancelBtn = document.getElementById("cancelCollection");
     const form = document.getElementById("newCollectionForm");
+    const aside = document.querySelector(".aside-bar");
+
+    // Função utilitária para fechar a barra
+    const fecharMenu = () => {
+        aside.classList.remove("open");
+    };
 
     const userId = getUserId();
 
@@ -47,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // abrir modal
     newLibBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        fecharMenu();
         modal.classList.add("active");
     });
 

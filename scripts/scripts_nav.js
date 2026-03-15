@@ -10,6 +10,12 @@ export function iniciarNavegacao({
     mostrarHome
 }) {
 
+    const aside = document.querySelector(".aside-bar");
+
+// Função utilitária para fechar a barra
+    const fecharMenu = () => {
+        aside.classList.remove("open");
+    };
     let searchHistory = [];
     let currentIndex = -1;
 
@@ -17,18 +23,21 @@ export function iniciarNavegacao({
     homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         mostrarHome();
+        fecharMenu();
     });
 
     // BIBLIOTECAS
     libBtn.addEventListener("click", (e) => {
         e.preventDefault();
         carregarColecoes();
+        fecharMenu();
     });
 
     // FOCO NA BUSCA
     focusSearch.addEventListener("click", (e) => {
         e.preventDefault();
         input.focus();
+        fecharMenu();
     });
 
     // ENTER PARA BUSCAR
