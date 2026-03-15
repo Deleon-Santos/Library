@@ -53,7 +53,7 @@ msg.textContent="Conta criada com sucesso!";
 
 setTimeout(()=>{
 
-window.location.href="/index.html";
+window.location.href="library/index.html";
 
 },1200);
 
