@@ -1,21 +1,9 @@
-// ==============================
-// FUNÇÃO EXPORTADA
-// ==============================
 
 export const getUserId = () => localStorage.getItem("userId");
 
-// ==============================
-// CONFIG
-// ==============================
-
-// const API_URL = "http://127.0.0.1:5000";
 const API_URL = "https://library-backend-b4as.onrender.com"
-// ==============================
-// ESPERA O DOM CARREGAR
-// ==============================
 
 document.addEventListener("DOMContentLoaded", () => {
-
 const form = document.getElementById("loginForm");
 const btn = document.getElementById("loginBtn");
 const msg = document.getElementById("msg");

@@ -8,18 +8,17 @@ export function iniciarNavegacao({
     carregarColecoes,
     buscarLivros,
     mostrarHome
-}) {
+    }) {
 
     const aside = document.querySelector(".aside-bar");
 
-// Função utilitária para fechar a barra
     const fecharMenu = () => {
         aside.classList.remove("open");
     };
     let searchHistory = [];
     let currentIndex = -1;
 
-    // HOME
+
     homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         mostrarHome();
@@ -65,7 +64,7 @@ export function iniciarNavegacao({
         }
     });
 
-    // SETA AVANÇAR
+    
     nextBtn.addEventListener("click", () => {
 
         if (currentIndex < searchHistory.length - 1) {

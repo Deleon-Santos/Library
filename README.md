@@ -54,8 +54,3 @@ Desenvolvida em **Flask**, esta API é responsável pelo CRUD (Criação, Leitur
 
 ---
 
-## 🚀 Como Iniciar
-
-1. **Clone o projeto:**
-   ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)

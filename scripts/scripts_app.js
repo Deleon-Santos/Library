@@ -26,15 +26,7 @@ let colecaoAtual = null;
 let searchHistory = [];
 let currentSearchIndex = -1;
 
-// -----------------------------------------------------------------------------
-// iniciar a navegação com o dom ativado
-// function mostrarHome() {
 
-//     results.innerHTML = `
-        
-        
-//     `;
-// }
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -53,31 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarHome();
 
 });
-
-// function iniciarScrollHome(){
-
-//     const grid = document.querySelector(".home-grid");
-//     const left = document.getElementById("scrollLeft");
-//     const right = document.getElementById("scrollRight");
-
-//     const scrollAmount = 400;
-
-//     left.addEventListener("click", () => {
-//         grid.scrollBy({
-//             left: -scrollAmount,
-//             behavior: "smooth"
-//         });
-//     });
-
-//     right.addEventListener("click", () => {
-//         grid.scrollBy({
-//             left: scrollAmount,
-//             behavior: "smooth"
-//         });
-//     });
-
-// }
-
 
 async function carregarDestaques(){
 
