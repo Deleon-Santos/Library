@@ -7,21 +7,33 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
-.collection .add{
+.collection button{
     /* position: relative; */
     /* margin-top: -600px; */
   width: 30px;
   height: 30px;
   align-items: right;
-  background-color: rgb(1, 78, 1);
-  /* border: none; */
+  background-color: var(--background-destaque-box);
+  
   border-radius: 8px;
   
   
 
 }
-
-
+.add i,
+.excluir i
+{
+  color: white;
+}
+.excluir button:hover{
+  /* color: red; */
+  background-color: rgb(118, 2, 2);
+}
+.excluir{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .collection:hover{
     transform: scale(1.01);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.525);

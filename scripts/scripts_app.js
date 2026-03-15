@@ -2,7 +2,8 @@ import {
     getColecoes,
     buscarLivrosAPI,
     getLivrosColecao,
-    adicionarLivroColecao
+    adicionarLivroColecao,
+    deletarColecao
 }  from "./scripts_api.js";
 
 import { iniciarNavegacao } from "./scripts_nav.js";
@@ -140,15 +141,14 @@ function mostrarHome() {
 // carregar coleções
 // document.addEventListener("DOMContentLoaded", carregarColecoes);
 btn.addEventListener("click", carregarColecoes);
+
 async function carregarColecoes() {
 
     results.innerHTML = ""; // remove a home
-    // mostrarHome();
+
     try {
 
         const colecoes = await getColecoes();
-
-        
 
         colecoes.forEach(colecao => {
 
@@ -156,26 +156,59 @@ async function carregarColecoes() {
             card.classList.add("collection");
 
             card.innerHTML = `
-                
-                    <img src="https://thumbs.dreamstime.com/b/livros-de-escola-coloridos-da-pilha-do-grupo-com-livro-aberto-88142348.jpg">
+                <img src="https://thumbs.dreamstime.com/b/livros-de-escola-coloridos-da-pilha-do-grupo-com-livro-aberto-88142348.jpg">
+
+                <div class="excluir">
                     <h3>${colecao.nome}</h3>
-                
+                    <button class="del-colection">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
             `;
 
+            // abrir coleção ao clicar no card
             card.addEventListener("click", () => {
                 abrirColecao(colecao.id);
             });
 
+            // botão excluir
+            const btnDelete = card.querySelector(".del-colection");
+
+            btnDelete.addEventListener("click", async (e) => {
+
+                e.stopPropagation(); // impede abrir a coleção
+
+                const confirmar = confirm("Deseja excluir esta coleção?");
+                if (!confirmar) return;
+
+                try {
+
+                    await deletarColecao(colecao.id);
+
+                    alert("Coleção excluída!");
+
+                    carregarColecoes(); // recarrega lista
+
+                } catch (error) {
+
+                    console.error(error);
+                    alert("Erro ao excluir coleção");
+
+                }
+
+            });
+
             results.appendChild(card);
+
         });
 
     } catch (error) {
 
         console.error(error);
         results.innerHTML = "<p>Erro ao carregar coleções</p>";
+
     }
 }
-
 
 // busca livros
 btn.addEventListener("click", buscarLivros);
@@ -341,3 +374,4 @@ const aside = document.querySelector(".aside-bar");
 btnBurger.addEventListener("click", () => {
     aside.classList.toggle("open");
 });
+

@@ -60,3 +60,16 @@ export async function adicionarLivroColecao(id, livro) {
 
     return await response.json();
 }
+
+export async function deletarColecao(id) {
+    // colection_id=id
+    const response = await fetch(`${API_URL}/delete_colection/${id}`, {
+        method: "DELETE"
+    });
+
+    if (!response.ok) {
+        throw new Error("Erro ao deletar coleção");
+    }
+
+    return await response.json();
+}
