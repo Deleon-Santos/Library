@@ -1,5 +1,5 @@
-const API_URL = "http://127.0.0.1:5000";
-
+// const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://library-backend-b4as.onrender.com"
 const form = document.getElementById("registerForm");
 const btn = document.getElementById("registerBtn");
 const msg = document.getElementById("msg");
