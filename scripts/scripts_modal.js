@@ -1,7 +1,23 @@
 import { getUserId } from "./login.js";
 // import { getColecoes } from "./scripts_api.js";
 
-const API_URL = "https://library-backend-b4as.onrender.com"
+// const API_URL = "https://library-backend-b4as.onrender.com"
+const API_URL = "http://127.0.0.1:5000";
+
+const getAuthHeaders = () => {
+    const token = localStorage.getItem("token"); // Já contém "Bearer eyJ..."
+    console.log("Token recuperado do localStorage:", token);
+
+    if (!token) {
+        console.warn("Nenhum token encontrado no localStorage.");
+        return { "Content-Type": "application/json" };
+    }
+
+    return {
+        "Content-Type": "application/json",
+        "autorizacao": token 
+    };
+};
 
 function criarCardColecao(colecao){
     
@@ -80,12 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Enviando:", body);
 
         try {
-
+            const headers = getAuthHeaders();
             const response = await fetch(`${API_URL}/nova_colecao`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: headers,
+                    
+                    
                 body: JSON.stringify(body)
             });
 

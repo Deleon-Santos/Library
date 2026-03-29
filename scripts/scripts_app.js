@@ -140,7 +140,7 @@ function mostrarHome() {
 // -----------------------------------------------------------------------------
 // carregar coleções
 // document.addEventListener("DOMContentLoaded", carregarColecoes);
-btn.addEventListener("click", carregarColecoes);
+// libBtn.addEventListener("click", carregarColecoes);
 
 async function carregarColecoes() {
 
@@ -328,7 +328,7 @@ async function adicionarLivro(livro) {
 
         alert("Livro adicionado!");
 
-        abrirColecao(colecaoAtual);
+        // abrirColecao(colecaoAtual);
 
     } catch (error) {
 

@@ -1,11 +1,14 @@
 
 export const getUserId = () => localStorage.getItem("userId");
+export const getUserName = () => localStorage.getItem("userName");
+export const getToken = () => localStorage.getItem("token");
 
-const API_URL = "https://library-backend-b4as.onrender.com"
+// const API_URL = "https://library-backend-b4as.onrender.com"
+const API_URL = "http://127.0.0.1:5000";
 
 document.addEventListener("DOMContentLoaded", () => {
 const form = document.getElementById("loginForm");
-const btn = document.getElementById("loginBtn");
+const loginBtn = document.getElementById("loginBtn");
 const msg = document.getElementById("msg");
 
 // evita erro caso o script seja carregado em outra página
@@ -19,7 +22,7 @@ const email = document.getElementById("email").value.trim();
 const senha = document.getElementById("senha").value.trim();
 
 msg.textContent = "";
-btn.classList.add("loading");
+loginBtn.classList.add("loading");
 
 try{
 
@@ -47,6 +50,8 @@ msg.textContent="Login realizado com sucesso!";
 
 // salva os dados do usuário
 localStorage.setItem("userId", data.usuario_id);
+localStorage.setItem("token", data.autorizacao); 
+localStorage.setItem("userName", data.nome);
 localStorage.setItem("user", JSON.stringify(data));
 
 console.log("Usuário logado:", data);
@@ -71,7 +76,7 @@ console.error(error);
 
 }
 
-btn.classList.remove("loading");
+loginBtn.classList.remove("loading");
 
 });
 

@@ -1,9 +1,37 @@
-// const API_URL = "http://127.0.0.1:5000";
-const API_URL = "https://library-backend-b4as.onrender.com"
-// buscar coleções
-export async function getColecoes() {
+const API_URL = "http://127.0.0.1:5000";
+// const API_URL = "https://library-backend-b4as.onrender.com"
 
-    const response = await fetch(`${API_URL}/colections`);
+
+// Função auxiliar para pegar o token e montar o cabeçalho
+const getAuthHeaders = () => {
+    const token = localStorage.getItem("token"); // Já contém "Bearer eyJ..."
+    console.log("Token recuperado do localStorage:", token);
+
+    if (!token) {
+        console.warn("Nenhum token encontrado no localStorage.");
+        return { "Content-Type": "application/json" };
+    }
+
+    return {
+        "Content-Type": "application/json",
+        "autorizacao": token 
+    };
+};
+
+
+// buscar coleções (PROTEGIDA)
+export async function getColecoes() {
+    const headers = getAuthHeaders();
+    const response = await fetch(`${API_URL}/colections`, {
+        method: "GET",
+        headers: headers
+        
+
+    });
+    
+    if (response.status === 401) {
+        throw new Error("Sessão expirada. Faça login novamente.");
+    }
 
     if (!response.ok) {
         throw new Error("Erro ao buscar coleções");
@@ -12,10 +40,8 @@ export async function getColecoes() {
     return await response.json();
 }
 
-
-// buscar livros na OpenLibrary
+// buscar livros na OpenLibrary (PÚBLICA - Não precisa de Token)
 export async function buscarLivrosAPI(termo) {
-
     const response = await fetch(
         `https://openlibrary.org/search.json?q=${encodeURIComponent(termo)}`
     );
@@ -25,32 +51,30 @@ export async function buscarLivrosAPI(termo) {
     }
 
     const data = await response.json();
-
     return data.docs.slice(0, 10);
 }
 
-
-// abrir coleção
+// abrir coleção (PROTEGIDA)
 export async function getLivrosColecao(id) {
-
-    const response = await fetch(`${API_URL}/mostrar_favoritos/${id}`);
+    const headers = getAuthHeaders();   
+    const response = await fetch(`${API_URL}/mostrar_favoritos/${id}`, {
+        method: "GET",
+        headers: headers
+    });
 
     if (!response.ok) {
-        throw new Error("Erro ao buscar livros");
+        throw new Error("Erro ao buscar livros da coleção");
     }
 
     return await response.json();
 }
 
-
-// adicionar livro
+// adicionar livro (PROTEGIDA)
 export async function adicionarLivroColecao(id, livro) {
-
+    const headers = getAuthHeaders();
     const response = await fetch(`${API_URL}/add_favoritos/${id}`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: headers,
         body: JSON.stringify(livro)
     });
 
@@ -61,10 +85,12 @@ export async function adicionarLivroColecao(id, livro) {
     return await response.json();
 }
 
+// deletar coleção (PROTEGIDA)
 export async function deletarColecao(id) {
-    // colection_id=id
+    const headers = getAuthHeaders();
     const response = await fetch(`${API_URL}/delete_colection/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: headers
     });
 
     if (!response.ok) {
