@@ -22,7 +22,7 @@ const getAuthHeaders = () => {
 // buscar coleções (PROTEGIDA)
 export async function getColecoes() {
     const headers = getAuthHeaders();
-    const response = await fetch(`${API_URL}/colections`, {
+    const response = await fetch(`${API_URL}/mostrar_colecao`, {
         method: "GET",
         headers: headers
         
@@ -36,7 +36,7 @@ export async function getColecoes() {
     if (!response.ok) {
         throw new Error("Erro ao buscar coleções");
     }
-
+    
     return await response.json();
 }
 
@@ -57,7 +57,7 @@ export async function buscarLivrosAPI(termo) {
 // abrir coleção (PROTEGIDA)
 export async function getLivrosColecao(id) {
     const headers = getAuthHeaders();   
-    const response = await fetch(`${API_URL}/mostrar_favoritos/${id}`, {
+    const response = await fetch(`${API_URL}/mostrar_livros/${id}`, {
         method: "GET",
         headers: headers
     });
@@ -72,7 +72,7 @@ export async function getLivrosColecao(id) {
 // adicionar livro (PROTEGIDA)
 export async function adicionarLivroColecao(id, livro) {
     const headers = getAuthHeaders();
-    const response = await fetch(`${API_URL}/add_favoritos/${id}`, {
+    const response = await fetch(`${API_URL}/add_livro/${id}`, {
         method: "POST",
         headers: headers,
         body: JSON.stringify(livro)
@@ -88,7 +88,7 @@ export async function adicionarLivroColecao(id, livro) {
 // deletar coleção (PROTEGIDA)
 export async function deletarColecao(id) {
     const headers = getAuthHeaders();
-    const response = await fetch(`${API_URL}/delete_colection/${id}`, {
+    const response = await fetch(`${API_URL}/deletar_colecao/${id}`, {
         method: "DELETE",
         headers: headers
     });

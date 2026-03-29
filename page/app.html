@@ -27,7 +27,7 @@
       // Exemplo de função de Logout
       function logout() {
           localStorage.clear(); // Limpa token, userId, etc.
-          window.location.href = "/login.html";
+          window.location.href = "/index.html";
       }
       
     </script>
@@ -36,7 +36,7 @@
     <section class="interface">
       <aside class="aside-bar">
         <section class="aside-bar__session top">
-          <h1>LIBRARY</h1>
+          <h1 >Library</h1>
           <ul>
             <li>
               <a href="#" id="homeBtn"
@@ -99,7 +99,7 @@
 
             <div class="login" id="sing_in">
               <button class="login-inscrever" id="inscrever" onclick="logout()">
-                Sair
+                <p id="auth"></p>
               </button>
 
               <img src="../img/perfil.png" alt="imagem de perfil" />

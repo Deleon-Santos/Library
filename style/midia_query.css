@@ -67,5 +67,9 @@
       width: 80px;
       height: 80px;  
     }
+
+    .footer-container p{
+      font-size: .7rem;
+    }
        
 }

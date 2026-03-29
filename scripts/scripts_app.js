@@ -30,6 +30,17 @@ let currentSearchIndex = -1;
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    // No início do scripts_app.js ou dentro do DOMContentLoaded
+    const nomeUsuario = localStorage.getItem("userName");
+    const authHeader = document.getElementById("auth");
+
+    if (authHeader) {
+        if (nomeUsuario) {
+            authHeader.textContent = nomeUsuario; // Define apenas o nome conforme solicitado
+        } else {
+            authHeader.textContent = "Library"; // Texto padrão caso não esteja logado
+        }
+    }
 
     iniciarNavegacao({
         homeBtn,
@@ -267,21 +278,27 @@ function mostrarResultados(livros) {
 }
 
 
-// abrir coleção
 async function abrirColecao(id) {
-
     colecaoAtual = id;
-
     results.innerHTML = "<p>Carregando livros...</p>";
 
     try {
-
         const data = await getLivrosColecao(id);
 
-        results.innerHTML = "";
+      
+        results.innerHTML = `
+            <div class="colecao-info collection">
+                
 
+                <h2 id="titulo-da-colecao">${data.nome}</h2>
+            </div>
+            
+        `;
+
+        const gridLivros = document.getElementById("biblioteca");
+
+        // 2. Iteramos sobre a lista de livros que vem no JSON
         data.livros.forEach(livro => {
-
             const capa = livro.capa
                 ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
                 : "https://via.placeholder.com/128x190?text=Sem+Capa";
@@ -289,23 +306,24 @@ async function abrirColecao(id) {
             const card = document.createElement("div");
             card.classList.add("collection");
 
+            // Removi o ${livro.nome} daqui, pois o nome da coleção já está no topo
             card.innerHTML = `
                 <img src="${capa}">
                 <h4>${livro.titulo}</h4>
-                <p>${livro.descricao}</p>
+                <p>${livro.autor || "Autor desconhecido"}</p>
+                <small>${livro.descricao || ""}</small>
             `;
 
-            results.appendChild(card);
-
+            gridLivros.appendChild(card);
         });
 
     } catch (error) {
-
-        console.error(error);
-        results.innerHTML = "<p>Erro ao carregar livros</p>";
-
+        console.error("Erro:", error);
+        results.innerHTML = "<p>Erro ao carregar a coleção.</p>";
     }
 }
+
+
 // adicionar livro
 async function adicionarLivro(livro) {
 
@@ -367,11 +385,13 @@ config.addEventListener("click", () => {
     }
 });
 
-// -----------------------
+
+
 const btnBurger = document.getElementById("btnBurguer");
 const aside = document.querySelector(".aside-bar");
 
 btnBurger.addEventListener("click", () => {
     aside.classList.toggle("open");
 });
+
 
