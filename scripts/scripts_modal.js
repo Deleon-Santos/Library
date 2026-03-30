@@ -1,4 +1,5 @@
 import { getUserId } from "./login.js";
+import { carregarColecoes } from "./scripts_app.js";
 // import { getColecoes } from "./scripts_api.js";
 
 // const API_URL = "https://library-backend-b4as.onrender.com"
@@ -115,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.classList.remove("active");
                 form.reset();
                 criarCardColecao(data);
+                await carregarColecoes(); // Atualiza a lista de coleções
 
             } else {
                 alert(data.erro || "Erro ao criar coleção");

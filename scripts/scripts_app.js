@@ -153,7 +153,7 @@ function mostrarHome() {
 // document.addEventListener("DOMContentLoaded", carregarColecoes);
 // libBtn.addEventListener("click", carregarColecoes);
 
-async function carregarColecoes() {
+export async function carregarColecoes() {
 
     results.innerHTML = ""; // remove a home
 
@@ -274,7 +274,9 @@ function mostrarResultados(livros) {
         });
 
         results.appendChild(card);
+        
     });
+    
 }
 
 
@@ -308,10 +310,12 @@ async function abrirColecao(id) {
 
             // Removi o ${livro.nome} daqui, pois o nome da coleção já está no topo
             card.innerHTML = `
-                <img src="${capa}">
-                <h4>${livro.titulo}</h4>
-                <p>${livro.autor || "Autor desconhecido"}</p>
-                <small>${livro.descricao || ""}</small>
+                <a href="https://www.amazon.com.br/Livros/b/?ie=UTF8&node=6740748011&ref_=topnav_storetab_b" target="_blank">
+                    <img src="${capa}"></a>
+                    <h4>${livro.titulo}</h4>
+                    <p>${livro.autor || "Autor desconhecido"}</p>
+                    <small>${livro.descricao || ""}</small>
+                
             `;
 
             gridLivros.appendChild(card);
@@ -346,7 +350,7 @@ async function adicionarLivro(livro) {
 
         alert("Livro adicionado!");
 
-        // abrirColecao(colecaoAtual);
+        await abrirColecao(colecaoAtual);
 
     } catch (error) {
 

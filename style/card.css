@@ -45,6 +45,14 @@
     object-fit: cover;
     border-radius: 8px;
 }
+.collection a{
+  width: 100%;
+  transform: none;
+  filter: opacity(.8);
+}
+.collection a:hover{
+  filter: contrast(1.2);
+}
 
 .collection h4{
     margin: 10px 0 5px;
