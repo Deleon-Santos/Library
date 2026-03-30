@@ -1,9 +1,9 @@
 import { getUserId } from "./login.js";
 import { carregarColecoes } from "./scripts_app.js";
-// import { getColecoes } from "./scripts_api.js";
 
-// const API_URL = "https://library-backend-b4as.onrender.com"
-const API_URL = "http://127.0.0.1:5000";
+
+const API_URL = "https://library-backend-b4as.onrender.com"
+// const API_URL = "http://127.0.0.1:5000";
 
 const getAuthHeaders = () => {
     const token = localStorage.getItem("token"); // Já contém "Bearer eyJ..."

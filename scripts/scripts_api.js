@@ -1,10 +1,10 @@
-const API_URL = "http://127.0.0.1:5000";
-// const API_URL = "https://library-backend-b4as.onrender.com"
+// const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://library-backend-b4as.onrender.com"
 
 
 // Função auxiliar para pegar o token e montar o cabeçalho
 const getAuthHeaders = () => {
-    const token = localStorage.getItem("token"); // Já contém "Bearer eyJ..."
+    const token = localStorage.getItem("token"); 
     console.log("Token recuperado do localStorage:", token);
 
     if (!token) {

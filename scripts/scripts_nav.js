@@ -18,7 +18,6 @@ export function iniciarNavegacao({
     let searchHistory = [];
     let currentIndex = -1;
 
-
     homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         mostrarHome();
@@ -53,24 +52,17 @@ export function iniciarNavegacao({
 
     // SETA VOLTAR
     prevBtn.addEventListener("click", () => {
-
         if (currentIndex > 0) {
-
             currentIndex--;
-
             input.value = searchHistory[currentIndex];
-
             buscarLivros();
         }
     });
 
     
     nextBtn.addEventListener("click", () => {
-
         if (currentIndex < searchHistory.length - 1) {
-
             currentIndex++;
-
             input.value = searchHistory[currentIndex];
 
             buscarLivros();
