@@ -1,79 +1,63 @@
 // const API_URL = "http://127.0.0.1:5000";
-const API_URL = "https://library-backend-b4as.onrender.com"
+const API_URL = "https://library-backend-b4as.onrender.com";
 
 const form = document.getElementById("registerForm");
 const btn = document.getElementById("registerBtn");
 const msg = document.getElementById("msg");
 
-form.addEventListener("submit", async (e)=>{
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-e.preventDefault();
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const senha = document.getElementById("senha").value.trim();
+  const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
 
-const nome = document.getElementById("nome").value.trim();
-const email = document.getElementById("email").value.trim();
-const senha = document.getElementById("senha").value.trim();
-const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
+  msg.textContent = "";
 
-msg.textContent="";
+  if (senha !== confirmarSenha) {
+    msg.style.color = "red";
+    msg.textContent = "As senhas não coincidem";
 
-if(senha !== confirmarSenha){
+    return;
+  }
 
-msg.style.color="red";
-msg.textContent="As senhas não coincidem";
+  btn.classList.add("loading");
 
-return;
+  try {
+    const response = await fetch(`${API_URL}/cadastro`, {
+      method: "POST",
 
-}
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-btn.classList.add("loading");
+      body: JSON.stringify({
+        nome,
+        email,
+        senha,
+      }),
+    });
 
-try{
+    const data = await response.json();
 
-const response = await fetch(`${API_URL}/cadastro`,{
+    if (response.ok) {
+      msg.style.color = "green";
+      msg.textContent = "Conta criada com sucesso!";
 
-method:"POST",
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 1200);
+    } else {
+      msg.style.color = "red";
+      msg.textContent = data.erro || "Erro ao criar conta";
+    }
+  } catch (error) {
+    msg.style.color = "red";
+    msg.textContent = "Servidor indisponível";
 
-headers:{
-"Content-Type":"application/json"
-},
+    console.error(error);
+  }
 
-body:JSON.stringify({
-nome,
-email,
-senha
-})
-
-});
-
-const data = await response.json();
-
-if(response.ok){
-
-msg.style.color="green";
-msg.textContent="Conta criada com sucesso!";
-
-setTimeout(()=>{
-
-window.location.href="../index.html";
-
-},1200);
-
-}else{
-
-msg.style.color="red";
-msg.textContent=data.erro || "Erro ao criar conta";
-
-}
-
-}catch(error){
-
-msg.style.color="red";
-msg.textContent="Servidor indisponível";
-
-console.error(error);
-
-}
-
-btn.classList.remove("loading");
-
+  btn.classList.remove("loading");
 });

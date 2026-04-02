@@ -45,35 +45,31 @@
             </li>
             <li>
               <a href="#" id="focusSearch"
-                ><i class="fa-solid fa-search"></i> Busca</a
-              >
+                ><i class="fa-solid fa-search"></i> Busca</a>
             </li>
           </ul>
         </section>
         <section class="aside-bar__session botton">
-          <!-- <span class="bibli"> -->
             
-            <a href="#" id="lib"><i class="fa-solid fa-book"></i>Bibliotecas</a>
-          <!-- </span> -->
+          <a href="#" id="lib"><i class="fa-solid fa-book"></i>Bibliotecas</a>
+          
           <div class="new-colection">
             <h3>Crie sua primeira Coleção</h3>
             <p>É facil, vamos te ajudar</p>
             <button id="new-lib" onclick="">Nova Coleção</button>
-          </div>
-          <!-- <span class=> -->
-            <a href="#" class="config" id="configBtn"><i class="fa-solid fa-gear"></i>Configurações</a>
-            
-            <div class="conf" id=configBox>
-              <button id="toggle">
-                <i class="fa-solid fa-moon"></i> 
-            </button>
-              <!-- botao para trocar o tema claro/escuro -->
             </div>
-          <!-- </span> -->
+              <a href="#" class="config" id="configBtn"><i class="fa-solid fa-gear"></i>Configurações</a>
+              
+              <div class="conf" id=configBox>
+                <button id="toggle">
+                  <i class="fa-solid fa-moon"></i> 
+              </button>
+                
+            </div>
         </section>
       </aside>
 
-      
+      <!-- inicio do corpo do projeto -->
       <main class="container">
         <header class="header">
           <nav class="header__nav" id="burger">
@@ -119,24 +115,20 @@
                     type="text"
                     id="collectionName"
                     placeholder="Nome da coleção"
-                    required
-                  />
+                    required/>
 
                   <div class="form-actions">
                     <button type="submit" class="btn-primary">Criar</button>
                     <button
                       type="button"
                       id="cancelCollection"
-                      class="btn-secondary"
-                    >
-                      Cancelar
-                    </button>
+                      class="btn-secondary">Cancelar</button>
                   </div>
                 </form>
               </div>
             </div>
             <div class="main-colection" id="biblioteca">
-              <!-- Conteúdo renderizado pelo JavaScript -->
+              <!-- Conteúdo do corpo dinamico do pojeto sera renderizado pelo JavaScript -->
       
             </div>
           </div>
