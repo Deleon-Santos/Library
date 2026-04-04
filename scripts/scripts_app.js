@@ -119,33 +119,15 @@ function mostrarHome() {
             </div>
             
          <section class="home-section">
-
             <h3>📖 Sugestões para você</h3>
-
-            
-
-               
-
-                <div class="home-grid">
-                
-                
-                
+                <div class="home-grid">            
                 </div>
-
-                
-
             </div>
-
         </section>
-
     </div>
-    
     `;
 
-    carregarDestaques();
-    
-    
-    
+    carregarDestaques();  
 }
 
 // -----------------------------------------------------------------------------
@@ -378,8 +360,8 @@ config.addEventListener("click", () => {
     document.body.classList.toggle("light");
 
     config.innerHTML = document.body.classList.contains("light")
-        ? '<i class="fa-solid fa-sun"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
+        ? '<span><i class="fa-solid fa-sun"> </i>  Tema Claro</span>'
+        : '<span><i class="fa-solid fa-moon"> </i>  Tema Escuro</span>';
 
     // salvar preferência
     if(document.body.classList.contains("light")){
