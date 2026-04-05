@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const body = {
             nome: nome,
-            usuario_id: userId
+            // usuario_id: userId
         };
 
         console.log("Enviando:", body);
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 await carregarColecoes(); // Atualiza a lista de coleções
 
             } else {
-                alert(data.erro || "Erro ao criar coleção");
+                alert(data.error || "Erro ao criar coleção");
             }
 
         } catch(error){
