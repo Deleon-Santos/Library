@@ -50,7 +50,7 @@ form.addEventListener("submit", async (e) => {
       }, 1200);
     } else {
       msg.style.color = "red";
-      msg.textContent = data.erro || "Erro ao criar conta";
+      msg.textContent = data.error || "Erro ao criar conta";
     }
   } catch (error) {
     msg.style.color = "red";
