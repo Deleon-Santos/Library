@@ -3,7 +3,8 @@ import {
     buscarLivrosAPI,
     getLivrosColecao,
     adicionarLivroColecao,
-    deletarColecao
+    deletarColecao,
+    deletarLivro
 }  from "./scripts_api.js";
 
 import { iniciarNavegacao } from "./scripts_nav.js";
@@ -269,19 +270,13 @@ async function abrirColecao(id) {
     try {
         const data = await getLivrosColecao(id);
 
-      
         results.innerHTML = `
             <div class="colecao-info collection">
-                
-
                 <h2 id="titulo-da-colecao">${data.nome}</h2>
             </div>
-            
         `;
 
-        const gridLivros = document.getElementById("biblioteca");
-
-        // 2. Iteramos sobre a lista de livros que vem no JSON
+        // Iteramos sobre a lista de livros
         data.livros.forEach(livro => {
             const capa = livro.capa
                 ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
@@ -290,17 +285,37 @@ async function abrirColecao(id) {
             const card = document.createElement("div");
             card.classList.add("collection");
 
-            // Removi o ${livro.nome} daqui, pois o nome da coleção já está no topo
             card.innerHTML = `
-                <a href="https://www.amazon.com.br/Livros/b/?ie=UTF8&node=6740748011&ref_=topnav_storetab_b" target="_blank">
-                    <img src="${capa}"></a>
-                    <h4>${livro.titulo}</h4>
-                    <p>${livro.autor || "Autor desconhecido"}</p>
-                    <small>${livro.descricao || ""}</small>
-                
+                <a href="https://www.amazon.com.br" target="_blank">
+                    <img src="${capa}">
+                </a>
+                <button class="del btn-deletar-livro">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                <h4>${livro.titulo}</h4>
+                <p>${livro.autor || "Autor desconhecido"}</p>
+                <small>${livro.descricao || ""}</small>
             `;
 
-            gridLivros.appendChild(card);
+            // LÓGICA DE DELEÇÃO AQUI:
+            const btnDel = card.querySelector(".btn-deletar-livro");
+            btnDel.addEventListener("click", async () => {
+                if (confirm(`Deseja remover "${livro.titulo}" da coleção?`)) {
+                    try {
+                        // Chama a API passando o ID do livro
+                        await deletarLivro(livro.id); 
+                        alert("Livro removido!");
+                        
+                        // Recarrega a coleção atual para atualizar a interface
+                        abrirColecao(id); 
+                    } catch (error) {
+                        console.error("Erro ao deletar:", error);
+                        alert(error.message);
+                    }
+                }
+            });
+
+            results.appendChild(card);
         });
 
     } catch (error) {
@@ -308,6 +323,53 @@ async function abrirColecao(id) {
         results.innerHTML = "<p>Erro ao carregar a coleção.</p>";
     }
 }
+// async function abrirColecao(id) {
+//     colecaoAtual = id;
+//     results.innerHTML = "<p>Carregando livros...</p>";
+
+//     try {
+//         const data = await getLivrosColecao(id);
+
+      
+//         results.innerHTML = `
+//             <div class="colecao-info collection">
+                
+
+//                 <h2 id="titulo-da-colecao">${data.nome}</h2>
+//             </div>
+            
+//         `;
+
+//         const gridLivros = document.getElementById("biblioteca");
+
+//         // 2. Iteramos sobre a lista de livros que vem no JSON
+//         data.livros.forEach(livro => {
+//             const capa = livro.capa
+//                 ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
+//                 : "https://via.placeholder.com/128x190?text=Sem+Capa";
+
+//             const card = document.createElement("div");
+//             card.classList.add("collection");
+
+//             // Removi o ${livro.nome} daqui, pois o nome da coleção já está no topo
+//             card.innerHTML = `
+//                 <a href="https://www.amazon.com.br/Livros/b/?ie=UTF8&node=6740748011&ref_=topnav_storetab_b" target="_blank">
+//                     <img src="${capa}"></a>
+//                     <button class="del" id="delete_livro"><i class="fa-solid fa-trash"></i></button>
+//                     <h4>${livro.titulo}</h4>
+//                     <p>${livro.autor || "Autor desconhecido"}</p>
+//                     <small>${livro.descricao || ""}</small>
+                
+//             `;
+
+//             gridLivros.appendChild(card);
+//         });
+
+//     } catch (error) {
+//         console.error("Erro:", error);
+//         results.innerHTML = "<p>Erro ao carregar a coleção.</p>";
+//     }
+// }
 
 
 // adicionar livro

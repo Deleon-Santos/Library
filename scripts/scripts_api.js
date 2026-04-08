@@ -99,3 +99,19 @@ export async function deletarColecao(id) {
 
     return await response.json();
 }
+
+// deletar livro (PROTEGIDA)
+export async function deletarLivro(id) {
+    const headers = getAuthHeaders();
+    const response = await fetch(`${API_URL}/deletar_livro/${id}`, {
+        method: "DELETE",
+        headers: headers
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Erro ao deletar livro");
+    }
+
+    return await response.json();
+}
