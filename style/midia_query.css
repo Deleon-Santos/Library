@@ -16,7 +16,15 @@
 
     main.container {
       margin-left:0;
-      width: 100%;
+    
+      
+    }
+    .main-container{
+      height: 90dvh;
+      
+    }
+    .main-container .main-colection{
+      max-height: 95%;
     }
 
     .header__nav{
@@ -44,7 +52,8 @@
     }
     
     .search{
-      width: 120px;
+      width: 100%;
+      max-width: 120px;
     }
 
     .search input{

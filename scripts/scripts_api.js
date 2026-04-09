@@ -5,10 +5,10 @@ const API_URL = "https://library-backend-b4as.onrender.com"
 // Função auxiliar para pegar o token e montar o cabeçalho
 const getAuthHeaders = () => {
     const token = localStorage.getItem("token"); 
-    console.log("Token recuperado do localStorage:", token);
+    
 
     if (!token) {
-        console.warn("Nenhum token encontrado no localStorage.");
+        
         return { "Content-Type": "application/json" };
     }
 
@@ -109,8 +109,8 @@ export async function deletarLivro(id) {
     });
 
     if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Erro ao deletar livro");
+        
+        throw new Error("Erro ao deletar livro");
     }
 
     return await response.json();
