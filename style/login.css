@@ -52,6 +52,7 @@ body{
     opacity:0.7;
 }
 
+
 .input-group{
     display:flex;
     flex-direction:column;
@@ -61,14 +62,14 @@ body{
 .input-wrapper{
     display:flex;
     align-items:center;
-    background:var(--background-destaque-box);
+    background:white;
     border-radius:6px;
     padding:10px;
 }
 
 .input-wrapper input{
     border:none;
-    background:none;
+    background:transparent;
     outline:none;
     flex:1;
     font-size:14px;
@@ -83,7 +84,7 @@ button{
     padding:12px;
     border:none;
     border-radius:6px;
-    background:var(--background-destaque-element);
+    background:white;
     font-weight:bold;
     cursor:pointer;
     display:flex;
@@ -94,8 +95,9 @@ button{
 }
 
 button:hover{
-    transform:translateY(-2px);
+    transform:scale(1.01);
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    background-color: var(--background-box);
 }
 
 .loader{
@@ -119,8 +121,9 @@ button.loading .btn-text{
 a{
     margin-top: 20px;
     text-decoration:none;
-    color:var(--color);
+    color:blue;
     font-size:14px;
+    text-align: right;
 }
 
 a:hover{
@@ -149,4 +152,25 @@ a:hover{
     opacity:1;
     transform:translateY(0);
     }
+}
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover, 
+.input-wrapper input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s; /* Truque para manter transparente */
+}
+
+.input-wrapper input {
+    flex: 1; /* Faz o input empurrar o ícone para a direita */
+    background: transparent !important;
+    border: none;
+    outline: none;
+    color: inherit;
+}
+
+#togglePassword:hover {
+    opacity: 1 !important;
+    color: black;
 }

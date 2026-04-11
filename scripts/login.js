@@ -68,4 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loginBtn.classList.remove("loading");
   });
+  const togglePassword = document.querySelector('#togglePassword');
+  const passwordField = document.querySelector('#senha');
+
+  togglePassword.addEventListener('click', function () {
+      // 1. Alterna o tipo de input
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      
+      
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+  });
 });
+
+
