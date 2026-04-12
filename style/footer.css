@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     
-    background-image:linear-gradient(to bottom, rgba(66, 66, 248, 0.847), var(--background-destaque-box) );
+    background-image:linear-gradient(to bottom, rgb(31, 31, 141), var(--background-destaque-box) );
     padding: 10px;
 }
 .footer-container{

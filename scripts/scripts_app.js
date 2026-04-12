@@ -150,8 +150,7 @@ export async function carregarColecoes() {
             card.classList.add("collection");
 
             card.innerHTML = `
-                <img src="https://thumbs.dreamstime.com/b/livros-de-escola-coloridos-da-pilha-do-grupo-com-livro-aberto-88142348.jpg">
-
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUri_qbNXRWAbarqCexInuhcyYQzU-jOwjHg&s">
                 <div class="excluir">
                     <h3>${colecao.nome}</h3>
                     <button class="del-colection">
