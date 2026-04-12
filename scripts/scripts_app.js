@@ -393,3 +393,28 @@ btnBurger.addEventListener("click", () => {
 });
 
 
+const perfilImg = document.getElementById('perfil');
+const loginMenu = document.getElementById('usuario');
+
+// 1. Abre/Fecha ao clicar na imagem
+perfilImg.addEventListener('click', (e) => {
+    e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
+    loginMenu.classList.toggle('active');
+});
+
+// 2. Fecha ao clicar fora da div
+window.addEventListener('click', (e) => {
+    // Verifica se o menu está aberto e se o clique foi fora dele e da imagem
+    if (loginMenu.classList.contains('active')) {
+        if (!loginMenu.contains(e.target) && e.target !== perfilImg) {
+            loginMenu.classList.remove('active');
+        }
+    }
+});
+
+// Opcional: Função de Logout que você já tem no HTML
+function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    window.location.reload(); // Recarrega para limpar o estado da aplicação
+}

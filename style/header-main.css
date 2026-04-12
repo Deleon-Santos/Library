@@ -92,13 +92,8 @@ input:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s; /* Truque para manter transparente */
 }
 
-.login{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
-.login-inscrever{
+.login-sair{
     color:var(--color);
     font-size: 16px;
     font-weight: 600;
@@ -107,6 +102,8 @@ input:-webkit-autofill:focus {
     cursor: pointer;
     text-decoration: none;
     border: none;
+    font-style: italic;
+    font-weight: 100;
 }
 
 .login img{
@@ -121,4 +118,49 @@ input:-webkit-autofill:focus {
     border-radius: 40px;
     cursor: pointer;
     text-decoration: none;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    color: var(--color);
+    background-color: var(--background-box);
+    padding:4px 20px;
+    border-radius: 20px 0px 0px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    opacity: 0;
+    transform: translateX(20px); /* Começa 50px para a direita */
+    pointer-events: none;        /* Impede cliques enquanto invisível */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave de retorno */
+    position: absolute;
+    right: 80px;
+    top: 29px;
+}
+
+/* Estado Ativo (Desliza para a esquerda e aparece) */
+.user-name.active {
+    opacity: 1;
+    transform: translateX(0);    /* Retorna para a posição original */
+    pointer-events: auto;        /* Habilita cliques */
+}
+
+/* Ajuste no efeito de clique do ícone */
+#usuario {
+    /* cursor: pointer; */
+    transition: transform 0.5s ease;
+}
+
+#usuario:active {
+    /* Scale é mais natural para clique que Translate */
+    transform: scale(0.95); 
+}
+.user-name p{
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
