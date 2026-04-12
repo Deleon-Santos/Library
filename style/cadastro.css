@@ -22,7 +22,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(135deg, #ffffff91, #c9c7c7);
+  background: linear-gradient(135deg, #ffffff91,var(--background-destaque-box));
 }
 
 /* CONTAINER */
@@ -80,7 +80,7 @@ body {
   display: flex;
   align-items: center;
 
-  background: var(--background-destaque-box);
+  background: white;
 
   border-radius: 6px;
 
@@ -112,7 +112,7 @@ button {
 
   border-radius: 6px;
 
-  background: var(--background-destaque-element);
+  background: white;
 
   font-weight: bold;
 
@@ -128,8 +128,8 @@ button {
 }
 
 button:hover {
-  transform: translateY(-2px);
-
+  transform: scale(1.01);
+  background-color: var(--background-box);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -195,4 +195,12 @@ button.loading .btn-text {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s; /* Truque para manter transparente */
 }

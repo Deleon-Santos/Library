@@ -18,7 +18,7 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,#ffffff91,#c9c7c7);
+    background:linear-gradient(135deg,var(--background-destaque-box),white);
 }
 
 .login-container{
@@ -97,7 +97,14 @@ button{
 button:hover{
     transform:scale(1.01);
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    background-color: var(--background-box);
+    
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover, 
+.input-wrapper input:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s; /* Truque para manter transparente */
+}
 }
 
 .loader{
