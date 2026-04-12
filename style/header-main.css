@@ -105,6 +105,10 @@ input:-webkit-autofill:focus {
     font-style: italic;
     font-weight: 100;
 }
+.login-sair:hover{
+    
+    text-decoration: underline;
+}
 
 .login img{
     background-color: var(--background-destaque-element);

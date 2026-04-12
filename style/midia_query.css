@@ -30,7 +30,7 @@
     .header__nav{
       display:flex;
       align-items:center;
-      gap:15px;
+      gap:10px;
     }
 
     #btnBurguer{
@@ -52,7 +52,7 @@
     }
     
     .search{
-      width: 100%;
+      width: 90%;
       max-width: 120px;
     }
 
@@ -61,11 +61,42 @@
     }
 
     .home-grid{
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+    }
+    .home-card {
+      flex: 1 1 150px;  
+      max-width: 400px;  
+      display: flex;
+      flex-direction: column;
+      /* background: var(--background-destaque-box); */
+      border-radius: 8px;
+      overflow: hidden;
     }
 
+    .home-card a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      text-decoration: none;
+      color: inherit;
+      width: 100%; 
+      height: auto; 
+      min-height: 80px;
+      min-width: 100px;
+    }
+
+    .home-card a img {
+      width: 80px;  
+      height: 100px; 
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+/* 
     .home-card a{
       min-width: 100%;
       height: 150px;
@@ -75,7 +106,7 @@
     .home-card a img{
       width: 80px;
       height: 80px;  
-    }
+    } */
 
     .footer-container p{
       font-size: .7rem;
