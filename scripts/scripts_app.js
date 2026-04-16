@@ -388,8 +388,21 @@ config.addEventListener("click", () => {
 const btnBurger = document.getElementById("btnBurguer");
 const aside = document.querySelector(".aside-bar");
 
-btnBurger.addEventListener("click", () => {
+// 1. Abre/Fecha ao clicar no botão
+btnBurger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
     aside.classList.toggle("open");
+});
+
+// 2. Fecha ao clicar fora da aside-bar
+window.addEventListener("click", (e) => {
+    // Verifica se o menu está aberto
+    if (aside.classList.contains("open")) {
+        // Se o clique NÃO foi dentro da aside E NÃO foi no botão burger
+        if (!aside.contains(e.target) && !btnBurger.contains(e.target)) {
+            aside.classList.remove("open");
+        }
+    }
 });
 
 
@@ -412,9 +425,9 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Opcional: Função de Logout que você já tem no HTML
-function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userName");
-    window.location.reload(); // Recarrega para limpar o estado da aplicação
-}
+// // Opcional: Função de Logout que você já tem no HTML
+// function logout() {
+//     localStorage.removeItem("token");
+//     localStorage.removeItem("userName");
+//     window.location.reload(); // Recarrega para limpar o estado da aplicação
+// }
