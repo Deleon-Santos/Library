@@ -424,10 +424,3 @@ window.addEventListener('click', (e) => {
         }
     }
 });
-
-// // Opcional: Função de Logout que você já tem no HTML
-// function logout() {
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("userName");
-//     window.location.reload(); // Recarrega para limpar o estado da aplicação
-// }

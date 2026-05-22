@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value.trim();
 
-    msg.textContent = "";
+    msg.textContent = "Conectando ao servidor...";
     loginBtn.classList.add("loading");
 
     try {
