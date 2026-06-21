@@ -1,21 +1,20 @@
 import {
-    getColecoes,
-    buscarLivrosAPI,
-    getLivrosColecao,
-    adicionarLivroColecao,
-    deletarColecao,
-    deletarLivro
-}  from "./scripts_api.js";
+  getColecoes,
+  buscarLivrosAPI,
+  getLivrosColecao,
+  adicionarLivroColecao,
+  deletarColecao,
+  deletarLivro,
+} from "./scripts_api.js";
 
 import { iniciarNavegacao } from "./scripts_nav.js";
 
 import "./scripts_modal.js";
 
-
 const renderhome = document.getElementById("renderhome");
-// const homeBtn = document.getElementById("homeBtn");
 const libBtn = document.getElementById("lib");
 const focusSearch = document.getElementById("focusSearch");
+const returnBtn = document.getElementById("return");
 
 const prevBtn = document.getElementById("prevSearch");
 const nextBtn = document.getElementById("nextSearch");
@@ -28,52 +27,48 @@ let colecaoAtual = null;
 let searchHistory = [];
 let currentSearchIndex = -1;
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    // No início do scripts_app.js ou dentro do DOMContentLoaded
-    const nomeUsuario = localStorage.getItem("userName");
-    const authHeader = document.getElementById("auth");
+  // No início do scripts_app.js ou dentro do DOMContentLoaded
+  const nomeUsuario = localStorage.getItem("userName");
+  const authHeader = document.getElementById("auth");
 
-    if (authHeader) {
-        if (nomeUsuario) {
-            authHeader.textContent = nomeUsuario; // Define apenas o nome conforme solicitado
-        } else {
-            authHeader.textContent = "Library"; // Texto padrão caso não esteja logado
-        }
+  if (authHeader) {
+    if (nomeUsuario) {
+      authHeader.textContent = nomeUsuario; // Define apenas o nome conforme solicitado
+    } else {
+      authHeader.textContent = "Library"; // Texto padrão caso não esteja logado
     }
+  }
 
-    iniciarNavegacao({
-        homeBtn,
-        libBtn,
-        focusSearch,
-        prevBtn,
-        nextBtn,
-        input,
-        carregarColecoes,
-        buscarLivros,
-        mostrarHome
-    });
+  iniciarNavegacao({
+    homeBtn,
+    libBtn,
+    focusSearch,
+    returnBtn,
+    prevBtn,
+    nextBtn,
+    input,
+    carregarColecoes,
+    buscarLivros,
+    mostrarHome,
+  });
 
-    mostrarHome();
-
+  mostrarHome();
 });
 
-async function carregarDestaques(){
+async function carregarDestaques() {
+  const res = await fetch("../data/livros.json");
+  const data = await res.json();
 
-    const res = await fetch("../data/livros.json");
-    const data = await res.json();
+  const grid = document.querySelector(".home-grid");
 
-    const grid = document.querySelector(".home-grid");
+  grid.innerHTML = "";
 
-    grid.innerHTML = "";
+  data.livros_destaque.forEach((livro) => {
+    const card = document.createElement("div");
+    card.classList.add("home-card");
 
-    data.livros_destaque.forEach(livro => {
-
-        const card = document.createElement("div");
-        card.classList.add("home-card");
-
-        card.innerHTML = `
+    card.innerHTML = `
         <a href="${livro.link}" target="_blank">
             
                 <img src="${livro.capa}">
@@ -81,15 +76,12 @@ async function carregarDestaques(){
         </a>
         `;
 
-        grid.appendChild(card);
-
-    });
-
+    grid.appendChild(card);
+  });
 }
 
 function mostrarHome() {
-
-    results.innerHTML = `
+  results.innerHTML = `
     
     <div class="home">
 
@@ -128,28 +120,22 @@ function mostrarHome() {
     </div>
     `;
 
-    carregarDestaques();  
+  carregarDestaques();
 }
 
 // -----------------------------------------------------------------------------
-// carregar coleções
-// document.addEventListener("DOMContentLoaded", carregarColecoes);
-// libBtn.addEventListener("click", carregarColecoes);
 
 export async function carregarColecoes() {
+  results.innerHTML = ""; // remove a home
 
-    results.innerHTML = ""; // remove a home
+  try {
+    const colecoes = await getColecoes();
 
-    try {
+    colecoes.forEach((colecao) => {
+      const card = document.createElement("div");
+      card.classList.add("collection");
 
-        const colecoes = await getColecoes();
-
-        colecoes.forEach(colecao => {
-
-            const card = document.createElement("div");
-            card.classList.add("collection");
-
-            card.innerHTML = `
+      card.innerHTML = `
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUri_qbNXRWAbarqCexInuhcyYQzU-jOwjHg&s">
                 <div class="excluir">
                     <h3>${colecao.nome}</h3>
@@ -159,89 +145,72 @@ export async function carregarColecoes() {
                 </div>
             `;
 
-            // abrir coleção ao clicar no card
-            card.addEventListener("click", () => {
-                abrirColecao(colecao.id);
-            });
+      // abrir coleção ao clicar no card
+      card.addEventListener("click", () => {
+        abrirColecao(colecao.id);
+      });
 
-            // botão excluir
-            const btnDelete = card.querySelector(".del-colection");
+      // botão excluir
+      const btnDelete = card.querySelector(".del-colection");
 
-            btnDelete.addEventListener("click", async (e) => {
+      btnDelete.addEventListener("click", async (e) => {
+        e.stopPropagation(); // impede abrir a coleção
 
-                e.stopPropagation(); // impede abrir a coleção
+        const confirmar = confirm("Deseja excluir esta coleção?");
+        if (!confirmar) return;
 
-                const confirmar = confirm("Deseja excluir esta coleção?");
-                if (!confirmar) return;
+        try {
+          await deletarColecao(colecao.id);
 
-                try {
+          alert("Coleção excluída!");
 
-                    await deletarColecao(colecao.id);
+          carregarColecoes(); // recarrega lista
+        } catch (error) {
+          console.error(error);
+          alert("Erro ao excluir coleção");
+        }
+      });
 
-                    alert("Coleção excluída!");
-
-                    carregarColecoes(); // recarrega lista
-
-                } catch (error) {
-
-                    console.error(error);
-                    alert("Erro ao excluir coleção");
-
-                }
-
-            });
-
-            results.appendChild(card);
-
-        });
-
-    } catch (error) {
-
-        console.error(error);
-        results.innerHTML = "<p>Erro ao carregar coleções</p>";
-
-    }
+      results.appendChild(card);
+    });
+  } catch (error) {
+    console.error(error);
+    results.innerHTML = "<p>Erro ao carregar coleções</p>";
+  }
 }
 
 // busca livros
 btn.addEventListener("click", buscarLivros);
 
 async function buscarLivros() {
+  const termo = input.value.trim();
 
-    const termo = input.value.trim();
+  if (!termo) return;
 
-    if (!termo) return;
+  results.innerHTML = "<p>Buscando...</p>";
 
-    results.innerHTML = "<p>Buscando...</p>";
+  try {
+    const livros = await buscarLivrosAPI(termo);
 
-    try {
-
-        const livros = await buscarLivrosAPI(termo);
-
-        mostrarResultados(livros);
-
-    } catch (erro) {
-
-        console.error(erro);
-        results.innerHTML = "<p>Erro ao buscar livros</p>";
-    }
+    mostrarResultados(livros);
+  } catch (erro) {
+    console.error(erro);
+    results.innerHTML = "<p>Erro ao buscar livros</p>";
+  }
 }
-
 
 // renderiza resultados
 function mostrarResultados(livros) {
+  results.innerHTML = "";
 
-    results.innerHTML = "";
+  livros.forEach((livro) => {
+    const capa = livro.cover_i
+      ? `https://covers.openlibrary.org/b/id/${livro.cover_i}-M.jpg`
+      : "https://via.placeholder.com/128x190?text=Sem+Capa";
 
-    livros.forEach(livro => {
-
-        const capa = livro.cover_i
-            ? `https://covers.openlibrary.org/b/id/${livro.cover_i}-M.jpg`
-            : "https://via.placeholder.com/128x190?text=Sem+Capa";
-
-        const card = document.createElement("div");
-        card.classList.add("collection");
-        card.innerHTML = `
+    const card = document.createElement("div");
+    card.classList.add("collection");
+    card.innerHTML = `
             
                 <img src="${capa}">
                 <button class=add><i class="fa-solid fa-plus"></i></button>
@@ -251,40 +220,37 @@ function mostrarResultados(livros) {
             
         `;
 
-        card.querySelector("button").addEventListener("click", () => {
-            adicionarLivro(livro);
-        });
-
-        results.appendChild(card);
-        
+    card.querySelector("button").addEventListener("click", () => {
+      adicionarLivro(livro);
     });
-    
+
+    results.appendChild(card);
+  });
 }
 
-
 async function abrirColecao(id) {
-    colecaoAtual = id;
-    results.innerHTML = "<p>Carregando livros...</p>";
+  colecaoAtual = id;
+  results.innerHTML = "<p>Carregando livros...</p>";
 
-    try {
-        const data = await getLivrosColecao(id);
+  try {
+    const data = await getLivrosColecao(id);
 
-        results.innerHTML = `
+    results.innerHTML = `
             <div class="colecao-info collection">
                 <h2 id="titulo-da-colecao">${data.nome}</h2>
             </div>
         `;
 
-        // Iteramos sobre a lista de livros
-        data.livros.forEach(livro => {
-            const capa = livro.capa
-                ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
-                : "https://via.placeholder.com/128x190?text=Sem+Capa";
+    // Iteramos sobre a lista de livros
+    data.livros.forEach((livro) => {
+      const capa = livro.capa
+        ? `https://covers.openlibrary.org/b/id/${livro.capa}-M.jpg`
+        : "https://via.placeholder.com/128x190?text=Sem+Capa";
 
-            const card = document.createElement("div");
-            card.classList.add("collection");
+      const card = document.createElement("div");
+      card.classList.add("collection");
 
-            card.innerHTML = `
+      card.innerHTML = `
                 <a href="https://www.amazon.com.br" target="_blank">
                     <img src="${capa}">
                 </a>
@@ -296,63 +262,57 @@ async function abrirColecao(id) {
                 <small>${livro.descricao || ""}</small>
             `;
 
-            // LÓGICA DE DELEÇÃO AQUI:
-            const btnDel = card.querySelector(".btn-deletar-livro");
-            btnDel.addEventListener("click", async () => {
-                if (confirm(`Deseja remover "${livro.titulo}" da coleção?`)) {
-                    try {
-                        // Chama a API passando o ID do livro
-                        await deletarLivro(livro.id); 
-                        alert("Livro removido!");
-                        
-                        // Recarrega a coleção atual para atualizar a interface
-                        abrirColecao(id); 
-                    } catch (error) {
-                        console.error("Erro ao deletar:", error);
-                        alert(error.message);
-                    }
-                }
-            });
+      // LÓGICA DE DELEÇÃO AQUI:
+      const btnDel = card.querySelector(".btn-deletar-livro");
+      btnDel.addEventListener("click", async () => {
+        if (confirm(`Deseja remover "${livro.titulo}" da coleção?`)) {
+          try {
+            // Chama a API passando o ID do livro
+            await deletarLivro(livro.id);
+            alert("Livro removido!");
 
-            results.appendChild(card);
-        });
+            // Recarrega a coleção atual para atualizar a interface
+            abrirColecao(id);
+          } catch (error) {
+            console.error("Erro ao deletar:", error);
+            alert(error.message);
+          }
+        }
+      });
 
-    } catch (error) {
-        console.error("Erro:", error);
-        results.innerHTML = "<p>Erro ao carregar a coleção.</p>";
-    }
+      results.appendChild(card);
+    });
+  } catch (error) {
+    console.error("Erro:", error);
+    results.innerHTML = "<p>Erro ao carregar a coleção.</p>";
+  }
 }
-
 
 // adicionar livro
 async function adicionarLivro(livro) {
+  if (!colecaoAtual) {
+    alert("Abra uma coleção primeiro!");
+    return;
+  }
+  console.log(livro);
+  const livroFormatado = {
+    titulo: livro.title,
+    autor: livro.author_name?.[0] || "Autor desconhecido",
+    descricao: livro.first_sentence?.[0] || "Sem descrição",
+    ano: livro.first_publish_year || null,
+    capa: livro.cover_i,
+  };
 
-    if (!colecaoAtual) {
-        alert("Abra uma coleção primeiro!");
-        return;
-    }
-    console.log(livro);
-    const livroFormatado = {
-        titulo: livro.title,
-        autor: livro.author_name?.[0] || "Autor desconhecido",
-        descricao: livro.first_sentence?.[0] || "Sem descrição",
-        ano: livro.first_publish_year || null,
-        capa: livro.cover_i
-    };
+  try {
+    await adicionarLivroColecao(colecaoAtual, livroFormatado);
 
-    try {
+    alert("Livro adicionado!");
 
-        await adicionarLivroColecao(colecaoAtual, livroFormatado);
-
-        alert("Livro adicionado!");
-
-        await abrirColecao(colecaoAtual);
-
-    } catch (error) {
-
-        console.error(error);
-        alert("Erro ao adicionar livro: " + error.message);
-    }
+    await abrirColecao(colecaoAtual);
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao adicionar livro: " + error.message);
+  }
 }
 
 // -------------------------------
@@ -360,8 +320,8 @@ const configBtn = document.getElementById("configBtn");
 const configBox = document.getElementById("configBox");
 
 configBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    configBox.classList.toggle("open");
+  e.preventDefault();
+  configBox.classList.toggle("open");
 });
 
 // ------------------------------
@@ -369,19 +329,18 @@ configBtn.addEventListener("click", (e) => {
 const config = document.getElementById("toggle");
 
 config.addEventListener("click", () => {
+  document.body.classList.toggle("light");
 
-    document.body.classList.toggle("light");
+  config.innerHTML = document.body.classList.contains("light")
+    ? '<span><i class="fa-solid fa-moon"> </i>  Tema Escuro</span>'
+    : '<span><i class="fa-solid fa-sun"> </i>  Tema Claro</span>';
 
-    config.innerHTML = document.body.classList.contains("light")
-        ? '<span><i class="fa-solid fa-sun"> </i>  Tema Claro</span>'
-        : '<span><i class="fa-solid fa-moon"> </i>  Tema Escuro</span>';
-
-    // salvar preferência
-    if(document.body.classList.contains("light")){
-        localStorage.setItem("theme","light");
-    }else{
-        localStorage.setItem("theme","dark");
-    }
+  // salvar preferência
+  if (document.body.classList.contains("light")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
 });
 
 // --------------------------------------------
@@ -390,37 +349,36 @@ const aside = document.querySelector(".aside-bar");
 
 // 1. Abre/Fecha ao clicar no botão
 btnBurger.addEventListener("click", (e) => {
-    e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
-    aside.classList.toggle("open");
+  e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
+  aside.classList.toggle("open");
 });
 
 // 2. Fecha ao clicar fora da aside-bar
 window.addEventListener("click", (e) => {
-    // Verifica se o menu está aberto
-    if (aside.classList.contains("open")) {
-        // Se o clique NÃO foi dentro da aside E NÃO foi no botão burger
-        if (!aside.contains(e.target) && !btnBurger.contains(e.target)) {
-            aside.classList.remove("open");
-        }
+  // Verifica se o menu está aberto
+  if (aside.classList.contains("open")) {
+    // Se o clique NÃO foi dentro da aside E NÃO foi no botão burger
+    if (!aside.contains(e.target) && !btnBurger.contains(e.target)) {
+      aside.classList.remove("open");
     }
+  }
 });
 
-
-const perfilImg = document.getElementById('perfil');
-const loginMenu = document.getElementById('usuario');
+const perfilImg = document.getElementById("perfil");
+const loginMenu = document.getElementById("usuario");
 
 // 1. Abre/Fecha ao clicar na imagem
-perfilImg.addEventListener('click', (e) => {
-    e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
-    loginMenu.classList.toggle('active');
+perfilImg.addEventListener("click", (e) => {
+  e.stopPropagation(); // Impede que o clique chegue ao window imediatamente
+  loginMenu.classList.toggle("active");
 });
 
 // 2. Fecha ao clicar fora da div
-window.addEventListener('click', (e) => {
-    // Verifica se o menu está aberto e se o clique foi fora dele e da imagem
-    if (loginMenu.classList.contains('active')) {
-        if (!loginMenu.contains(e.target) && e.target !== perfilImg) {
-            loginMenu.classList.remove('active');
-        }
+window.addEventListener("click", (e) => {
+  // Verifica se o menu está aberto e se o clique foi fora dele e da imagem
+  if (loginMenu.classList.contains("active")) {
+    if (!loginMenu.contains(e.target) && e.target !== perfilImg) {
+      loginMenu.classList.remove("active");
     }
+  }
 });

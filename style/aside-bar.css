@@ -93,6 +93,13 @@
     padding-left: 30px;
     border-radius: 0 0 8px 8px;
 }
+#toggle{
+  background: none;
+  border-radius: 8px;
+  padding: 5px;
+  width: 100%;
+  border: none;
+}
 
 #toggle i{
   width: 30px;
@@ -102,4 +109,13 @@
   color: var(--color);
   font-size: 1rem;
   cursor: pointer;
+  
+}
+#toggle span{
+  
+  cursor: pointer;
+}
+
+#toggle span:hover{
+  text-decoration: underline;
 }
