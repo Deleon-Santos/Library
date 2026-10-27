@@ -1,5 +1,5 @@
 // const API_URL = "http://127.0.0.1:5000";
-const API_URL = "https://library-backend-1-0zpr.onrender.com/"
+const API_URL = "https://library-backend-1-0zpr.onrender.com"
 
 
 // Função auxiliar para pegar o token e montar o cabeçalho
