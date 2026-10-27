@@ -2,7 +2,7 @@ import { getUserId } from "./login.js";
 import { carregarColecoes } from "./scripts_app.js";
 
 
-const API_URL = "https://library-backend-b4as.onrender.com"
+const API_URL = "https://library-backend-1-0zpr.onrender.com"
 // const API_URL = "http://127.0.0.1:5000";
 
 const getAuthHeaders = () => {
